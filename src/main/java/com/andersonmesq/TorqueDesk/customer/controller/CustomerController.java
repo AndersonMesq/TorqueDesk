@@ -1,5 +1,6 @@
 package com.andersonmesq.TorqueDesk.customer.controller;
 
+import com.andersonmesq.TorqueDesk.customer.dto.CustomerRequest;
 import com.andersonmesq.TorqueDesk.customer.dto.CustomerResponse;
 import com.andersonmesq.TorqueDesk.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,10 @@ public class CustomerController {
     @GetMapping("/{id}")
     public CustomerResponse findById(@PathVariable UUID id){
         return service.findById(id);
+    }
+
+    @GetMapping("/{email}")
+    public CustomerResponse findByEmail (@PathVariable String email){
+        return service.findByEmail(email);
     }
 }
