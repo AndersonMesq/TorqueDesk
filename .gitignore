@@ -5,6 +5,7 @@ target/
 
 ### Specific ###
 anotações.txt
+src/main/resources/application-dev.properties
 
 ### STS ###
 .apt_generated
