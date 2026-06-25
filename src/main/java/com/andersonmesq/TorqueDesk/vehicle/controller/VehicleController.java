@@ -15,12 +15,12 @@ import java.util.UUID;
 public class VehicleController {
     private final VehicleService service;
 
-    @GetMapping("/vehicle/{model}")
+    @GetMapping("/{model}")
     public VehicleResponse findByModel(@PathVariable String model){
         return service.findByModel(model);
     }
 
-    @GetMapping("/vehicle/{plate}")
+    @GetMapping("/{plate}")
     public VehicleResponse findByPlate(@PathVariable String plate){
         return service.findByPlate(plate);
     }
