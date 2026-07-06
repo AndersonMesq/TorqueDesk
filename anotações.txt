@@ -1,3 +1,33 @@
 http://localhost:8080/swagger-ui/index.html
 http://localhost:8080/v3/api-docs
 http://localhost:8080/v3/api-docs/swagger-config
+
+- Modificar UserTenantService para validar criação de User somente sob ADMIN role
+- Aplicar JwtClaims a JwtFilter
+
+-----Prompt IA-------
+1. Contexto
+2. Objetivo
+3. Situação atual
+4. Restrições
+Manter-se na stack, pode sugerir outras ferramentas mas não aplique sem aprovação
+5. Critérios de qualidade
+Clean code e escalabilidade
+6. Formato esperado
+Exemplo abaixo:
+Topico X
+-Codigo
+public class x {
+    public int soma(int x, int y){
+        return x + y;
+    }
+}
+-Explicação
+Metodo retorna x + y
+
+-Cuidados/observações
+Não passar string
+
+-Outras soluções
+retornar resultado em variavel local
+------------------

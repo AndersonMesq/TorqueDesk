@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -37,7 +38,7 @@ public class AdminTenantController {
     }
 
     @GetMapping
-    public Page<TenantResponse> findAll(@PageableDefault(size = 20) Pageable pageable) {
+    public Page<TenantResponse> findAll(@PageableDefault(sort = "name",direction = Sort.Direction.ASC, size = 20) Pageable pageable) {
         return tenantService.findAll(pageable);
     }
 

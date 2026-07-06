@@ -11,6 +11,7 @@ import com.andersonmesq.TorqueDesk.tenant.mapper.TenantMapper;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ import java.util.UUID;
 import static com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus.INACTIVE;
 import static com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus.ACTIVE;
 
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -35,10 +36,12 @@ public class AdminTenantService {
 
     public TenantResponse findById(UUID id) {
         Tenant tenant = findTenant(id);
+        log.debug("findById called");
         return mapper.toResponse(tenant);
     }
 
     public Page<TenantResponse> findAll(Pageable pageable) {
+        log.debug("findAll called");
         return repository.findAll(pageable).map(mapper::toResponse);
     }
 
