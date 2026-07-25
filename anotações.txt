@@ -4,30 +4,39 @@ http://localhost:8080/v3/api-docs/swagger-config
 
 - Modificar UserTenantService para validar criação de User somente sob ADMIN role
 - Aplicar JwtClaims a JwtFilter
-
+- Modificar o model e dto de criação dos usuarios e deixar assossiação
+- user.getEmail(), em UserPrincipal vai retornar nulo (Problema?)
+- "Collection<? extends GrantedAuthority> getAuthorities()" oque isso significa?
+- public Collection<? extends GrantedAuthority> getAuthorities(){
+          return List.of();
+      }
+Deve mesmo retornar List.of?
+- loadWorkspaces retorna uma lista de DTOs, e
+- instanceof é problematico?
+- Diferença entre AllArgsConstructor e @RequiredArgsConstructor
 -----Prompt IA-------
-1. Contexto
-2. Objetivo
-3. Situação atual
-4. Restrições
+- Contexto
+- Objetivo
+- Situação atual
+- Restrições
 Manter-se na stack, pode sugerir outras ferramentas mas não aplique sem aprovação
-5. Critérios de qualidade
+- Critérios de qualidade
 Clean code e escalabilidade
-6. Formato esperado
+- Formato esperado
 Exemplo abaixo:
 Topico X
--Codigo
+Codigo:
 public class x {
     public int soma(int x, int y){
         return x + y;
     }
 }
--Explicação
+Explicação:
 Metodo retorna x + y
 
--Cuidados/observações
+Cuidados/observações:
 Não passar string
 
--Outras soluções
+Outras soluções:
 retornar resultado em variavel local
 ------------------

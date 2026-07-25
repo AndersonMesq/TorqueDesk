@@ -4,11 +4,8 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.UUID;
 
-public record SelectTenantRequest(
+public record WorkspaceSelectionRequest(
         @NotNull
-        UUID userId,
-
-        @NotNull
-        UUID tenantId
+        UUID userTenantId
 ) {
 }

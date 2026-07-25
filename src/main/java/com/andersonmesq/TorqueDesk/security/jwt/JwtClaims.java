@@ -1,13 +1,9 @@
 package com.andersonmesq.TorqueDesk.security.jwt;
 
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
-
-import java.util.UUID;
-
-public record JwtClaims(
-        UUID userId,
-        UUID TenantId,
-        Role role,
-        JwtTokenType tokenType
-) {
+public final class JwtClaims {
+    public static final String TOKEN_TYPE = "token_type";
+    public static final String USER_ID = "user_id";
+    public static final String TENANT_ID  = "tenant_id";
+    public static final String USER_TENANT_ID   = "user_tenant_id";
+    public static final String ROLE  = "role";
 }

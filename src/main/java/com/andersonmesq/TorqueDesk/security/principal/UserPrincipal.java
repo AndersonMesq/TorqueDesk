@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.security.user;
+package com.andersonmesq.TorqueDesk.security.principal;
 
 import com.andersonmesq.TorqueDesk.user.model.User;
 import lombok.Getter;
@@ -14,16 +14,14 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserPrincipal implements UserDetails {
     private final UUID id;
-    private final String email;
+    private final String login;
     private final String password;
-    private final boolean enabled;
 
     public static UserPrincipal create(User user){
         return new UserPrincipal(
                 user.getId(),
                 user.getEmail(),
-                user.getPassword(),
-                user.getEnabled()
+                user.getPassword()
         );
     }
 
@@ -34,26 +32,11 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getUsername(){
-        return email;
+        return login;
     }
 
     @Override
-    public boolean isAccountNonExpired(){
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked(){
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired(){
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled(){
-        return true;
+    public String getPassword(){
+        return password;
     }
 }

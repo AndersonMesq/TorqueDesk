@@ -1,5 +1,6 @@
-package com.andersonmesq.TorqueDesk.security.user;
+package com.andersonmesq.TorqueDesk.security.service;
 
+import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,13 @@ public class CustomUserDetailsService implements UserDetailsService {
     private final UserRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String email){
-        User user = repository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    public UserDetails loadUserByUsername(String login){
+        User user = repository.findByUsername(login).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return UserPrincipal.create(user);
+    }
+
+    public UserDetails loadUserByEmail(String login){
+        User user = repository.findByEmail(login).orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return UserPrincipal.create(user);
     }
 }

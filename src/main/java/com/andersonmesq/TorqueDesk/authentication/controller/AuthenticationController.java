@@ -2,7 +2,7 @@ package com.andersonmesq.TorqueDesk.authentication.controller;
 
 import com.andersonmesq.TorqueDesk.authentication.dto.request.LoginRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshTokenRequest;
-import com.andersonmesq.TorqueDesk.authentication.dto.request.SelectTenantRequest;
+import com.andersonmesq.TorqueDesk.authentication.dto.request.WorkspaceSelectionRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.AuthenticationResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.LoginResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.RefreshTokenResponse;
@@ -26,7 +26,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/tenant")
-    public AuthenticationResponse selectTenant(@RequestBody @Valid SelectTenantRequest request){
+    public AuthenticationResponse selectTenant(@RequestBody @Valid WorkspaceSelectionRequest request){
         return service.selectTenant(request);
     }
 

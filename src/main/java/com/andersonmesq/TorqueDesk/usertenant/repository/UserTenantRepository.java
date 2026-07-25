@@ -8,7 +8,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface UserTenantRepository extends JpaRepository<UserTenant, UUID> {
-        List<UserTenant> findByTenantId(UUID tenantId);
+        List<UserTenant> findAllByTenantId(UUID tenantId);
+        List<UserTenant> findAllByUserId(UUID userId);
         Optional<UserTenant> findByUserIdAndTenantId(UUID userId, UUID tenantId);
         boolean existsByUserIdAndTenantId(UUID userId, UUID tenantId);
 }

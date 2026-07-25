@@ -1,12 +1,10 @@
 package com.andersonmesq.TorqueDesk.authentication.dto.request;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 public record LoginRequest(
         @NotBlank
-        @Email
-        String email,
+        String login,
 
         @NotBlank
         String password

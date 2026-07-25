@@ -4,8 +4,7 @@ import java.util.List;
 import java.util.UUID;
 
 public record LoginResponse(
-        UUID userId,
-        String fullName,
-        List<TenantOptionResponse> tenants
+        String identityToken,
+        List<AvailableWorkspaceResponse> tenants
 ) {
 }
