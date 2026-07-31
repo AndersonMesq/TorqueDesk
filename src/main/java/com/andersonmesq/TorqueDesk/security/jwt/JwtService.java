@@ -1,6 +1,6 @@
 package com.andersonmesq.TorqueDesk.security.jwt;
 
-import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
+import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import io.jsonwebtoken.Claims;
@@ -17,7 +17,6 @@ import java.util.Date;
 import java.util.UUID;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
-
 //Atualmente secretKey é recriado apos toda requisição
 
 @Service
@@ -26,22 +25,20 @@ public class JwtService {
     private final SecretKey secretKey;
     private final JwtProperties properties;
 
-    public String generateIdentityToken(UserPrincipal userPrincipal) {
+    public String generateIdentityToken(TorqueDeskPrincipal principal) {
         Instant now = Instant.now();
-
         return Jwts.builder()
                 .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.IDENTITY.name())
-                .claim(JwtClaims.USER_ID, userPrincipal.getId())
-                .subject(userPrincipal.getLogin())
+                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId())
+                .subject(principal.getUsername())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(getIdentityExpiration(), SECONDS)))
-                .signWith(getKey())
+                .signWith(secretKey)
                 .compact();
     }
 
     public String generateWorkspaceToken(UserTenant userTenant) {
         Instant now = Instant.now();
-
         return Jwts.builder()
                 .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.WORKSPACE.name())
                 .claim(JwtClaims.USER_ID, userTenant.getUser().getId())
@@ -50,7 +47,19 @@ public class JwtService {
                 .claim(JwtClaims.ROLE, userTenant.getRole().name())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(getWorkspaceExpiration(), SECONDS)))
-                .signWith(getKey())
+                .signWith(secretKey)
+                .compact();
+    }
+
+    public String generateRefreshToken(TorqueDeskPrincipal principal) {
+        Instant now = Instant.now();
+        return Jwts.builder()
+                .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.REFRESH.name())
+                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId())
+                .subject(principal.getUsername())
+                .issuedAt(Date.from(now))
+                .expiration(Date.from(now.plus(getRefreshExpiration(), SECONDS)))
+                .signWith(secretKey)
                 .compact();
     }
 
@@ -59,9 +68,7 @@ public class JwtService {
     }
 
     private Claims extractClaims(String token) {
-        return Jwts.parser()
-                .verifyWith(getKey())
-                .build()
+        return parse()
                 .parseSignedClaims(token)
                 .getPayload();
     }
@@ -75,9 +82,12 @@ public class JwtService {
         return UUID.fromString(claims.get(JwtClaims.USER_TENANT_ID, String.class));
     }
 
+    public UUID extractTenantId(String token){
+        return UUID.fromString(extractClaims(token).get(JwtClaims.TENANT_ID, String.class));
+    }
+
     public Role extractRole(String token){
-        String role = extractClaims(token).toString();
-        return Role.valueOf(role);
+        return Role.valueOf(extractClaims(token).get(JwtClaims.ROLE, String.class));
     }
 
     public boolean validateIdentityToken(String token) {
@@ -88,14 +98,18 @@ public class JwtService {
         return validateToken(token, JwtTokenType.WORKSPACE);
     }
 
+    public boolean validateRefreshToken(String token) {
+        return validateToken(token, JwtTokenType.REFRESH);
+    }
+
     private boolean validateToken(String token, JwtTokenType expectedType) {
         Claims claims = extractClaims(token);
         String tokenType = claims.get(JwtClaims.TOKEN_TYPE, String.class);
-        return expectedType.name().equals(tokenType);
+        return expectedType.name().equals(tokenType) && claims.getExpiration().after(new Date());
     }
 
     private JwtParser parse() {
-        return Jwts.parser().verifyWith(getKey()).build();
+        return Jwts.parser().verifyWith(secretKey).build();
     }
 
     private SecretKey getKey() {
@@ -108,5 +122,9 @@ public class JwtService {
 
     private Long getWorkspaceExpiration() {
         return properties.getWorkspaceExpiration();
+    }
+
+    private long getRefreshExpiration(){
+        return properties.getRefreshExpiration();
     }
 }

@@ -13,4 +13,5 @@ public class JwtProperties {
     private String secretKey;
     private long identityExpiration;
     private long workspaceExpiration;
+    private long refreshExpiration;
 }

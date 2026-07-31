@@ -1,11 +1,10 @@
 package com.andersonmesq.TorqueDesk.authentication.controller;
 
 import com.andersonmesq.TorqueDesk.authentication.dto.request.LoginRequest;
+import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshTokenRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.WorkspaceSelectionRequest;
-import com.andersonmesq.TorqueDesk.authentication.dto.response.AuthenticationResponse;
-import com.andersonmesq.TorqueDesk.authentication.dto.response.LoginResponse;
-import com.andersonmesq.TorqueDesk.authentication.dto.response.RefreshTokenResponse;
+import com.andersonmesq.TorqueDesk.authentication.dto.response.*;
 import com.andersonmesq.TorqueDesk.authentication.service.AuthenticationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -26,12 +25,12 @@ public class AuthenticationController {
     }
 
     @PostMapping("/tenant")
-    public AuthenticationResponse selectTenant(@RequestBody @Valid WorkspaceSelectionRequest request){
-        return service.selectTenant(request);
+    public WorkspaceSelectionResponse selectWorkspace(@RequestBody @Valid WorkspaceSelectionRequest request){
+        return service.selectWorkspace(request);
     }
 
     @PostMapping("/refresh")
-    public RefreshTokenResponse refresh(@RequestBody @Valid RefreshTokenRequest request){
-        return service.refreshToken(request);
+    public RefreshResponse refresh(@RequestBody @Valid RefreshRequest request) {
+        return service.refresh(request);
     }
 }

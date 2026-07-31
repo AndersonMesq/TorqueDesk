@@ -1,5 +1,6 @@
 package com.andersonmesq.TorqueDesk.security.principal;
 
+import com.andersonmesq.TorqueDesk.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +22,13 @@ public class TorqueDeskPrincipal implements UserDetails {
             return workspacePrincipal.getAuthorities();
         }
         return userPrincipal.getAuthorities();
+    }
+
+    public static TorqueDeskPrincipal fromUser(User user){
+        return TorqueDeskPrincipal.builder()
+                .userPrincipal(UserPrincipal.create(user))
+                .workspacePrincipal(null)
+                .build();
     }
 
     @Override

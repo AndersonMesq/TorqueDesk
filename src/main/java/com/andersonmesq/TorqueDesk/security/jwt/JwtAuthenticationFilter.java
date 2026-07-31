@@ -1,6 +1,7 @@
 package com.andersonmesq.TorqueDesk.security.jwt;
 
 import com.andersonmesq.TorqueDesk.security.exception.InvalidTokenException;
+import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.WorkspacePrincipal;
 import com.andersonmesq.TorqueDesk.user.model.User;
@@ -45,41 +46,53 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private void authenticate(String token) {
         JwtTokenType tokenType = jwtService.extractTokenType(token);
-
+        TorqueDeskPrincipal principal;
         switch (tokenType) {
             case IDENTITY -> {
                 if (!jwtService.validateIdentityToken(token)) {
                     throw new InvalidTokenException("Invalid identity token");
                 }
-                authenticateIdentity(token);
+                principal = buildIdentityPrincipal(token);
             }
             case WORKSPACE -> {
                 if (!jwtService.validateWorkspaceToken(token)) {
                     throw new InvalidTokenException("Invalid workspace token");
                 }
-                authenticateWorkspace(token);
+                principal = buildWorkspacePrincipal(token);
             }
+            default -> throw new InvalidTokenException("Unsupported token type");
         }
+        setAuthentication(principal);
     }
 
-    private void authenticateIdentity(String token) {
+    private TorqueDeskPrincipal buildIdentityPrincipal(String token) {
         UUID userId = jwtService.extractUserId(token);
         User user = userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        UserPrincipal principal = UserPrincipal.create(user);
+        UserPrincipal userPrincipal = UserPrincipal.create(user);
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
-
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        return  TorqueDeskPrincipal.builder()
+                .userPrincipal(userPrincipal)
+                .workspacePrincipal(null)
+                .build();
     }
 
-    private void authenticateWorkspace(String token) {
+    private TorqueDeskPrincipal buildWorkspacePrincipal(String token) {
         UUID userTenantId = jwtService.extractUserTenantId(token);
         UserTenant userTenant = userTenantRepository.findById(userTenantId).orElseThrow(() -> new UserTenantNotFoundException("UserTenant not found"));
-        WorkspacePrincipal principal = WorkspacePrincipal.create(userTenant);
 
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
+        UserPrincipal userPrincipal = UserPrincipal.create(userTenant.getUser());
 
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        WorkspacePrincipal workspacePrincipal = WorkspacePrincipal.create(userTenant);
+
+        return TorqueDeskPrincipal.builder()
+                .userPrincipal(userPrincipal)
+                .workspacePrincipal(workspacePrincipal)
+                .build();
+    }
+
+    private void setAuthentication(TorqueDeskPrincipal principal) {
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(principal, null, principal.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 }

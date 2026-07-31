@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public record LoginResponse(
         String identityToken,
-        List<AvailableWorkspaceResponse> tenants
+        String workspaceToken,
+        List<AvailableWorkspaceResponse> workspaces
 ) {
 }

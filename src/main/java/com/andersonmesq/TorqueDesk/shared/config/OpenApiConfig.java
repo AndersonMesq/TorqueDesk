@@ -61,4 +61,12 @@ public class OpenApiConfig {
                 .pathsToMatch("/api/v1/vehicles/**")
                 .build();
     }
+
+    @Bean
+    public GroupedOpenApi authenticationApi(){
+        return GroupedOpenApi.builder()
+                .group("8 - Authentication")
+                .pathsToMatch("/api/v1/auth/**")
+                .build();
+    }
 }

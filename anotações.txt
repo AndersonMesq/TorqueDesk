@@ -11,9 +11,12 @@ http://localhost:8080/v3/api-docs/swagger-config
           return List.of();
       }
 Deve mesmo retornar List.of?
-- loadWorkspaces retorna uma lista de DTOs, e
+- loadWorkspaces retorna uma lista de DTOs, é um problema?
 - instanceof é problematico?
 - Diferença entre AllArgsConstructor e @RequiredArgsConstructor
+- SecurityContextHolder, pesquisar mais sobre.
+- Por que AuthenticationService depender de SecurityUtils é melhor do que depender do SpringSecurity?
+- Explicação sobre objetos de dominio.
 -----Prompt IA-------
 - Contexto
 - Objetivo

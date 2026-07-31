@@ -1,15 +1,21 @@
 package com.andersonmesq.TorqueDesk.authentication.service;
 
 import com.andersonmesq.TorqueDesk.authentication.dto.request.LoginRequest;
+import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.WorkspaceSelectionRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.LoginResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.AvailableWorkspaceResponse;
+import com.andersonmesq.TorqueDesk.authentication.dto.response.RefreshResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.WorkspaceSelectionResponse;
+import com.andersonmesq.TorqueDesk.authentication.mapper.AvailableWorkspaceMapper;
+import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
+import com.andersonmesq.TorqueDesk.security.exception.UnauthorizedException;
 import com.andersonmesq.TorqueDesk.security.jwt.JwtService;
-import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
+import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
 import com.andersonmesq.TorqueDesk.tenant.exception.AccessDeniedException;
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantAlreadyDeactivatedException;
+import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantDisabledException;
 import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantNotFoundException;
@@ -19,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,47 +40,59 @@ public class AuthenticationService {
     private final UserRepository userRepository;
     private final UserTenantRepository userTenantRepository;
     private final JwtService jwtService;
-    private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
+    private final SecurityUtils securityUtils;
+    private final AvailableWorkspaceMapper mapper;
 
     public LoginResponse login(LoginRequest request) {
-        UserPrincipal userPrincipal = authenticate(request);
-        String identityToken = jwtService.generateIdentityToken(userPrincipal);
-        List<AvailableWorkspaceResponse>workspace = loadWorkspaces(userPrincipal);
-        return new LoginResponse(identityToken, workspace);
+        TorqueDeskPrincipal principal = authenticate(request);
+        String identityToken = jwtService.generateIdentityToken(principal);
+        List<UserTenant> workspaces = userTenantRepository.findAllByUserId(principal.getUserPrincipal().getId());
+        if (workspaces.isEmpty()) throw new UserTenantNotFoundException("No workspace available");
+        if (workspaces.size() == 1) {
+            UserTenant workspace = workspaces.getFirst();
+            String workspaceToken = jwtService.generateWorkspaceToken(workspace);
+            return new LoginResponse(identityToken, workspaceToken, null);
+        }
+        return new LoginResponse(identityToken, null, loadWorkspaces(workspaces));
     }
 
     public WorkspaceSelectionResponse selectWorkspace(WorkspaceSelectionRequest request) {
-        UserTenant userTenant = loadUserTenant(request.userTenantId());
+        TorqueDeskPrincipal principal = securityUtils.getPrincipal();
+        UserTenant workspace = loadUserTenant(request.userTenantId());
+        validateUserTenant(principal, workspace);
+        String workspaceToken = jwtService.generateWorkspaceToken(workspace);
 
-        validateUserTenant(userTenant, );
-        String workspaceToken = jwtService.generateWorkspaceToken(userTenant);
-
-        return new WorkspaceSelectionResponse(workspaceToken, userTenant.getTenant().getId(), userTenant.getTenant().getName(), userTenant.getRole());
+        return new WorkspaceSelectionResponse(workspaceToken, workspace.getTenant().getId(), workspace.getTenant().getName(), workspace.getRole());
     }
 
-    private UserPrincipal authenticate(LoginRequest request){
+    public RefreshResponse refresh(RefreshRequest request){
+        if (!jwtService.validateRefreshToken(request.refreshToken())) throw new AccessDeniedException("Invalid refresh token");
+        UUID userId = jwtService.extractUserId(request.refreshToken());
+        User user = userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        validateUser(user);
+        TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(user);
+        String identityToken = jwtService.generateIdentityToken(principal);
+        return new RefreshResponse(identityToken);
+    }
+
+    private TorqueDeskPrincipal authenticate(LoginRequest request){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.login(), request.password()));
-        return (UserPrincipal) authentication.getPrincipal();
+        return (TorqueDeskPrincipal) authentication.getPrincipal();
     }
 
-    private List<AvailableWorkspaceResponse> loadWorkspaces(UserPrincipal userPrincipal){
-        return userTenantRepository.findAllByUserId(userPrincipal.getId()).stream().map(userTenant -> new AvailableWorkspaceResponse(
-                userTenant.getId(),
-                userTenant.getTenant().getId(),
-                userTenant.getTenant().getName(),
-                userTenant.getRole()
-        )).toList();
+    private List<AvailableWorkspaceResponse> loadWorkspaces(List<UserTenant> workspaces){
+        return workspaces.stream().map(mapper::toResponse).toList();
     }
 
     private UserTenant loadUserTenant(UUID userTenantId){
         return userTenantRepository.findById(userTenantId).orElseThrow(() -> new UserTenantNotFoundException("Workspace not found"));
     }
 
-    private void validateUserTenant(UserPrincipal userPrincipal, UserTenant userTenant){
+    private void validateUserTenant(TorqueDeskPrincipal torqueDeskPrincipal, UserTenant userTenant){
         validateWorkspaceEnabled(userTenant);
         validateTenant(userTenant);
-        validateOwner(userPrincipal, userTenant);
+        validateOwner(torqueDeskPrincipal, userTenant);
     }
 
     private void validateWorkspaceEnabled(UserTenant userTenant) {
@@ -85,7 +103,11 @@ public class AuthenticationService {
         if (userTenant.getTenant().getStatus() == TenantStatus.INACTIVE) throw new TenantAlreadyDeactivatedException("Tenant is disabled");
     }
 
-    private void validateOwner(UserPrincipal userPrincipal, UserTenant userTenant){
-        if (!userTenant.getUser().getId().equals(userPrincipal.getId())) throw new AccessDeniedException("Workspace does not belong to authenticated user.");
+    private void validateOwner(TorqueDeskPrincipal torqueDeskPrincipal, UserTenant userTenant){
+        if (!userTenant.getUser().getId().equals(torqueDeskPrincipal.getUserPrincipal().getId())) throw new AccessDeniedException("Workspace does not belong to authenticated user.");
+    }
+
+    private void validateUser(User user){
+        if (!user.getEnabled()) throw new UnauthorizedException("User is disabled.");
     }
 }
