@@ -1,11 +1,41 @@
 package com.andersonmesq.TorqueDesk.shared.config;
 
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@SecurityScheme(
+        name = "bearerAuth",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT"
+)
 public class OpenApiConfig {
+
+    @Bean
+    public OpenAPI openAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("TorqueDesk API")
+                        .description("API para gerenciamento de oficinas mecânicas")
+                        .version("v1"));
+    }
+
+    @Bean
+    public GroupedOpenApi authenticationApi(){
+        return GroupedOpenApi.builder()
+                .group("0 - Authentication")
+                .pathsToMatch("/api/v1/auth/**")
+                .build();
+    }
+
     @Bean
     public GroupedOpenApi tenantAdminApi(){
         return GroupedOpenApi.builder()
@@ -25,24 +55,24 @@ public class OpenApiConfig {
     @Bean
     public GroupedOpenApi customerApi(){
         return GroupedOpenApi.builder()
-                .group("3 - Customer")
-                .pathsToMatch("/api/v1/customer/**")
+                .group("3 - Customers")
+                .pathsToMatch("/api/v1/customers/**")
                 .build();
     }
 
     @Bean
     public GroupedOpenApi serviceApi(){
         return GroupedOpenApi.builder()
-                .group("4 - Service")
-                .pathsToMatch("/api/v1/service/**")
+                .group("4 - Services")
+                .pathsToMatch("/api/v1/services/**")
                 .build();
     }
 
     @Bean
     public GroupedOpenApi userApi(){
         return GroupedOpenApi.builder()
-                .group("5 - User")
-                .pathsToMatch("/api/v1/user/**")
+                .group("5 - Users")
+                .pathsToMatch("/api/v1/users/**")
                 .build();
     }
 
@@ -59,14 +89,6 @@ public class OpenApiConfig {
         return GroupedOpenApi.builder()
                 .group("7 - Vehicles")
                 .pathsToMatch("/api/v1/vehicles/**")
-                .build();
-    }
-
-    @Bean
-    public GroupedOpenApi authenticationApi(){
-        return GroupedOpenApi.builder()
-                .group("8 - Authentication")
-                .pathsToMatch("/api/v1/auth/**")
                 .build();
     }
 }

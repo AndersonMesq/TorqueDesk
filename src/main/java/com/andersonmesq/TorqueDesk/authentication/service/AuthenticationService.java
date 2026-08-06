@@ -22,6 +22,7 @@ import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantNotFoundExcept
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import com.andersonmesq.TorqueDesk.usertenant.repository.UserTenantRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -33,6 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -50,6 +52,7 @@ public class AuthenticationService {
         List<UserTenant> workspaces = userTenantRepository.findAllByUserId(principal.getUserPrincipal().getId());
         if (workspaces.isEmpty()) throw new UserTenantNotFoundException("No workspace available");
         if (workspaces.size() == 1) {
+            log.debug("Found one workspace linked from this user Id: {}", principal.getUserPrincipal().getId());
             UserTenant workspace = workspaces.getFirst();
             String workspaceToken = jwtService.generateWorkspaceToken(workspace);
             return new LoginResponse(identityToken, workspaceToken, null);
@@ -62,6 +65,7 @@ public class AuthenticationService {
         UserTenant workspace = loadUserTenant(request.userTenantId());
         validateUserTenant(principal, workspace);
         String workspaceToken = jwtService.generateWorkspaceToken(workspace);
+        log.debug("Selecting workspace id: {}", principal.getTenantId());
 
         return new WorkspaceSelectionResponse(workspaceToken, workspace.getTenant().getId(), workspace.getTenant().getName(), workspace.getRole());
     }
@@ -73,11 +77,13 @@ public class AuthenticationService {
         validateUser(user);
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(user);
         String identityToken = jwtService.generateIdentityToken(principal);
+        log.debug("Refreshing workspace id: {}", principal.getTenantId());
         return new RefreshResponse(identityToken);
     }
 
     private TorqueDeskPrincipal authenticate(LoginRequest request){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.login(), request.password()));
+        log.debug("Authenticating user: {}", authentication.getPrincipal());
         return (TorqueDeskPrincipal) authentication.getPrincipal();
     }
 
@@ -91,16 +97,18 @@ public class AuthenticationService {
 
     private void validateUserTenant(TorqueDeskPrincipal torqueDeskPrincipal, UserTenant userTenant){
         validateWorkspaceEnabled(userTenant);
-        validateTenant(userTenant);
+        validateWorkspace(userTenant);
         validateOwner(torqueDeskPrincipal, userTenant);
     }
 
     private void validateWorkspaceEnabled(UserTenant userTenant) {
+        log.debug("Validating workspace enabled status: {}", userTenant.getEnabled());
         if (!userTenant.getEnabled()) throw new UserTenantDisabledException("Workspace is disabled.");
     }
 
-    private void validateTenant(UserTenant userTenant){
+    private void validateWorkspace(UserTenant userTenant){
         if (userTenant.getTenant().getStatus() == TenantStatus.INACTIVE) throw new TenantAlreadyDeactivatedException("Tenant is disabled");
+        log.debug("Validating tenant ID: {}", userTenant.getTenant().getId());
     }
 
     private void validateOwner(TorqueDeskPrincipal torqueDeskPrincipal, UserTenant userTenant){
@@ -109,5 +117,6 @@ public class AuthenticationService {
 
     private void validateUser(User user){
         if (!user.getEnabled()) throw new UnauthorizedException("User is disabled.");
+        log.debug("Validating user ID: {}", user.getId());
     }
 }

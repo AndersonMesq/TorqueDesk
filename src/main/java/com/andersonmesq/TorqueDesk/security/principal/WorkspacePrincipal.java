@@ -1,6 +1,6 @@
 package com.andersonmesq.TorqueDesk.security.principal;
 
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

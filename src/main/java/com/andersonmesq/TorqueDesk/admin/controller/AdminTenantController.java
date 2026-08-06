@@ -42,14 +42,12 @@ public class AdminTenantController {
         return tenantService.findAll(pageable);
     }
 
-    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @PatchMapping("/{id}/deactivate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deactivate(@PathVariable UUID id) {
         tenantService.deactivate(id);
     }
 
-    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @PatchMapping("/{id}/activate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void activate(@PathVariable UUID id) {

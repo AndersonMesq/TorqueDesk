@@ -5,6 +5,7 @@ import com.andersonmesq.TorqueDesk.vehicle.dto.VehicleResponse;
 import com.andersonmesq.TorqueDesk.vehicle.service.VehicleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
@@ -12,15 +13,16 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/vehicles")
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
 public class VehicleController {
     private final VehicleService service;
 
-    @GetMapping("/{model}")
+    @GetMapping("/by-model/{model}")
     public VehicleResponse findByModel(@PathVariable String model){
         return service.findByModel(model);
     }
 
-    @GetMapping("/{plate}")
+    @GetMapping("/by-plate/{plate}")
     public VehicleResponse findByPlate(@PathVariable String plate){
         return service.findByPlate(plate);
     }

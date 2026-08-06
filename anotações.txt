@@ -17,6 +17,7 @@ Deve mesmo retornar List.of?
 - SecurityContextHolder, pesquisar mais sobre.
 - Por que AuthenticationService depender de SecurityUtils é melhor do que depender do SpringSecurity?
 - Explicação sobre objetos de dominio.
+- Dar uma olhada em como usar @PreAuthorize em conjunto com Beans
 -----Prompt IA-------
 - Contexto
 - Objetivo
@@ -43,3 +44,22 @@ Não passar string
 Outras soluções:
 retornar resultado em variavel local
 ------------------
+SUPER_ADMIN,
+OWNER,
+ATTENDANT,
+MECHANIC
+
+@PreAuthorize
+Expressão	Função
+hasRole("X")	Verifica uma role
+hasAnyRole(...)	Verifica várias roles
+hasAuthority("X")	Verifica uma permissão
+hasAnyAuthority(...)	Verifica várias permissões
+isAuthenticated()	Usuário autenticado
+isAnonymous()	Usuário não autenticado
+and	E lógico
+or	OU lógico
+!	Negação
+#parametro	Acessa parâmetros do método
+authentication	Acessa informações do usuário autenticado
+@bean.metodo(...)	Executa uma validação personalizada

@@ -3,7 +3,7 @@ package com.andersonmesq.TorqueDesk.usertenant.model;
 import com.andersonmesq.TorqueDesk.shared.entity.BaseEntity;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.user.model.User;
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 

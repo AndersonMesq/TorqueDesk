@@ -1,6 +1,7 @@
 package com.andersonmesq.TorqueDesk.security.principal;
 
 import com.andersonmesq.TorqueDesk.user.model.User;
+import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.UUID;
 
 @Getter
 @Builder
@@ -63,5 +65,20 @@ public class TorqueDeskPrincipal implements UserDetails {
 
     public boolean hasWorkspace() {
         return workspacePrincipal != null;
+    }
+
+    public boolean isSuperAdmin() {
+        return userPrincipal.getSystemRole() == SystemRole.SUPER_ADMIN;
+    }
+
+    public UUID getUserId() {
+        return userPrincipal.getId();
+    }
+
+    public UUID getTenantId() {
+        if (workspacePrincipal == null) {
+            throw new IllegalStateException("Workspace not selected.");
+        }
+        return workspacePrincipal.getTenantId();
     }
 }

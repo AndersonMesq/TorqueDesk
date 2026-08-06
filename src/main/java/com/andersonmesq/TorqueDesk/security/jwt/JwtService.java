@@ -1,7 +1,7 @@
 package com.andersonmesq.TorqueDesk.security.jwt;
 
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtParser;

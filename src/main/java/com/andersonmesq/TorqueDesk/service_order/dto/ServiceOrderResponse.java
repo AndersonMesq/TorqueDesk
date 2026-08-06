@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.sevice_order.dto;
+package com.andersonmesq.TorqueDesk.service_order.dto;
 
 import java.util.UUID;
 

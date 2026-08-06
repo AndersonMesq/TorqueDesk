@@ -10,7 +10,7 @@ import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import com.andersonmesq.TorqueDesk.usertenant.repository.UserTenantRepository;
 import jakarta.validation.Valid;
@@ -30,7 +30,7 @@ public class TenantProvisioningService {
 
     public TenantProvisionResponse createTenant(@Valid CreateTenantRequest request) {
         String slug = SlugGenerator.generate(request.companyName());
-        if (tenantRepository.existsBySlug(slug)) {
+        if (tenantRepository.existsBySlugAndEmail(slug, request.ownerEmail().toLowerCase())) {
             throw new DuplicateSlugException("Tenant already exists");
         }
         Tenant tenant = Tenant.builder()
@@ -43,7 +43,7 @@ public class TenantProvisioningService {
         String temporaryPassword = PasswordGenerator.generate();
         User owner = User.builder()
                 .fullName(request.ownerName())
-                .email(request.ownerEmail())
+                .email(request.ownerEmail().toLowerCase())
                 .password(passwordEncoder.encode(temporaryPassword))
                 .enabled(true)
                 .build();

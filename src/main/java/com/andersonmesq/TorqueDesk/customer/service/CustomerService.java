@@ -5,20 +5,20 @@ import com.andersonmesq.TorqueDesk.customer.exception.CustomerNotFoundException;
 import com.andersonmesq.TorqueDesk.customer.mapper.CustomerMapper;
 import com.andersonmesq.TorqueDesk.customer.model.Customer;
 import com.andersonmesq.TorqueDesk.customer.repository.CustomerRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class CustomerService {
     private final CustomerRepository repository;
     private final CustomerMapper mapper;
 
-    public Customer findCustomer(UUID id){
+    private Customer findCustomer(UUID id){
         return repository.findById(id).orElseThrow(() -> new CustomerNotFoundException("Customer not found"));
     }
 

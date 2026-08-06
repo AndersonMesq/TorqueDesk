@@ -1,7 +1,9 @@
 package com.andersonmesq.TorqueDesk.usertenant.service;
 
+import com.andersonmesq.TorqueDesk.tenant.exception.TenantNotFoundException;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
+import com.andersonmesq.TorqueDesk.user.exception.UserNotFoundException;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import com.andersonmesq.TorqueDesk.usertenant.dto.CreateUserTenantRequest;
@@ -23,10 +25,9 @@ public class UserTenantService {
     private final UserTenantMapper mapper;
 
     public UserTenantResponse create(CreateUserTenantRequest request){
-        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())){throw new IllegalArgumentException("User already linked to tenant");
-        }
-        User user = userRepository.findById(request.userId()).orElseThrow(() -> new RuntimeException("User not found"));
-        Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new RuntimeException("Tenant not found"));
+        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new IllegalArgumentException("User already linked to tenant");
+        User user = userRepository.findById(request.userId()).orElseThrow(() -> new UserNotFoundException("User not found"));
+        Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
         UserTenant userTenant = UserTenant.builder()
                 .user(user)
                 .tenant(tenant)

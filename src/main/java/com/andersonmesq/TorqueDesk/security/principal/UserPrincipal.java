@@ -1,6 +1,7 @@
 package com.andersonmesq.TorqueDesk.security.principal;
 
 import com.andersonmesq.TorqueDesk.user.model.User;
+import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,12 +17,14 @@ public class UserPrincipal implements UserDetails {
     private final UUID id;
     private final String login;
     private final String password;
+    private final SystemRole systemRole;
 
     public static UserPrincipal create(User user){
         return new UserPrincipal(
                 user.getId(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                user.getSystemRole()
         );
     }
 

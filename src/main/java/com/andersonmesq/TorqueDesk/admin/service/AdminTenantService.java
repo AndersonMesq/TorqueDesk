@@ -31,17 +31,16 @@ public class AdminTenantService {
     private final TenantMapper mapper;
 
     private Tenant findTenant(UUID id) {
+        log.debug("Finding tenant by id {}", id);
         return repository.findById(id).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
     }
 
     public TenantResponse findById(UUID id) {
         Tenant tenant = findTenant(id);
-        log.debug("findById called");
         return mapper.toResponse(tenant);
     }
 
     public Page<TenantResponse> findAll(Pageable pageable) {
-        log.debug("findAll called");
         return repository.findAll(pageable).map(mapper::toResponse);
     }
 
@@ -53,7 +52,7 @@ public class AdminTenantService {
         if(repository.existsBySlugAndIdNot(newSlug, id)) {
             throw new DuplicateSlugException("Slug already exists");
         }
-        tenant.setSlug(SlugGenerator.generate(request.companyName()));
+        tenant.setSlug(newSlug);
         return mapper.toResponse(tenant);
     }
 
@@ -62,7 +61,6 @@ public class AdminTenantService {
         Tenant tenant = findTenant(id);
         if(tenant.getStatus() == INACTIVE) throw new TenantAlreadyDeactivatedException("Tenant already deactivate");
         tenant.setStatus(INACTIVE);
-        repository.save(tenant);
     }
 
     @Transactional
@@ -70,6 +68,5 @@ public class AdminTenantService {
         Tenant tenant = findTenant(id);
         if(tenant.getStatus() == ACTIVE) throw new TenantAlreadyActiveException("Tenant already active");
         tenant.setStatus(ACTIVE);
-        repository.save(tenant);
     }
 }

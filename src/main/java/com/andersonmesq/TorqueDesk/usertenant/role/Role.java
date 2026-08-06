@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.usertenant.enums;
+package com.andersonmesq.TorqueDesk.usertenant.role;
 
 public enum Role {
     SUPER_ADMIN,

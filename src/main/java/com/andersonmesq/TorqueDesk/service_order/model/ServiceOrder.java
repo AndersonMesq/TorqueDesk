@@ -1,6 +1,6 @@
-package com.andersonmesq.TorqueDesk.sevice_order.model;
+package com.andersonmesq.TorqueDesk.service_order.model;
 
-import com.andersonmesq.TorqueDesk.sevice_order.enuns.ServiceOrderStatus;
+import com.andersonmesq.TorqueDesk.service_order.enuns.ServiceOrderStatus;
 import com.andersonmesq.TorqueDesk.shared.entity.BaseEntity;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.vehicle.model.Vehicle;

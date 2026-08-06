@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.sevice_order.model;
+package com.andersonmesq.TorqueDesk.service_order.model;
 
 import com.andersonmesq.TorqueDesk.user.model.User;
 import jakarta.persistence.*;

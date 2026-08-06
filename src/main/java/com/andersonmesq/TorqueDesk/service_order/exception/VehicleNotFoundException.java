@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.sevice_order.exception;
+package com.andersonmesq.TorqueDesk.service_order.exception;
 
 public class VehicleNotFoundException extends RuntimeException {
     public VehicleNotFoundException(String message) {

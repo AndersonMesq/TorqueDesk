@@ -34,8 +34,8 @@ public class AdminUserController {
     }
 
     @GetMapping("/email/{email}")
-    public UserResponse findByEmail(@RequestParam String email) {
-        return service.findByEmail(email);
+    public UserResponse findByEmail(@PathVariable String email) {
+        return service.findByEmail(email.toLowerCase());
     }
 
     @GetMapping

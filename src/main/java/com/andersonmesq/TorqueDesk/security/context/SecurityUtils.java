@@ -4,7 +4,7 @@ import com.andersonmesq.TorqueDesk.security.exception.UnauthorizedException;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.WorkspacePrincipal;
-import com.andersonmesq.TorqueDesk.usertenant.enums.Role;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

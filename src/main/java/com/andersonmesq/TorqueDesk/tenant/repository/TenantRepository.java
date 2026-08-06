@@ -11,6 +11,7 @@ import java.util.UUID;
 public interface TenantRepository extends JpaRepository<Tenant, UUID> {
     boolean existsBySlugAndIdNot(String slug, UUID id);
     boolean existsBySlug(String slug);
+    boolean existsBySlugAndEmail(String slug, String email);
     Optional<Tenant> findBySlug(String slug);
     boolean existsByName(String name);
 }

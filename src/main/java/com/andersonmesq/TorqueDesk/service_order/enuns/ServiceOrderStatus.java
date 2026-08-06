@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.sevice_order.enuns;
+package com.andersonmesq.TorqueDesk.service_order.enuns;
 
 public enum ServiceOrderStatus {
     OPEN,
