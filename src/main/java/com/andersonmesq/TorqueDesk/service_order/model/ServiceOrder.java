@@ -39,7 +39,7 @@ public class ServiceOrder extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id", nullable = false)
-    private Vehicle vehicle;
+    private Vehicle vehicles;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mechanic_id")

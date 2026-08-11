@@ -13,7 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "vehicle")
+@Table(name = "vehicles")
 public class Vehicle extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

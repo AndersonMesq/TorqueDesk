@@ -29,7 +29,7 @@ public class JwtService {
         Instant now = Instant.now();
         return Jwts.builder()
                 .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.IDENTITY.name())
-                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId())
+                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId().toString())
                 .subject(principal.getUsername())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(getIdentityExpiration(), SECONDS)))
@@ -41,9 +41,9 @@ public class JwtService {
         Instant now = Instant.now();
         return Jwts.builder()
                 .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.WORKSPACE.name())
-                .claim(JwtClaims.USER_ID, userTenant.getUser().getId())
-                .claim(JwtClaims.TENANT_ID, userTenant.getTenant().getId())
-                .claim(JwtClaims.USER_TENANT_ID, userTenant.getId())
+                .claim(JwtClaims.USER_ID, userTenant.getUser().getId().toString())
+                .claim(JwtClaims.TENANT_ID, userTenant.getTenant().getId().toString())
+                .claim(JwtClaims.USER_TENANT_ID, userTenant.getId().toString())
                 .claim(JwtClaims.ROLE, userTenant.getRole().name())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(getWorkspaceExpiration(), SECONDS)))
@@ -55,7 +55,7 @@ public class JwtService {
         Instant now = Instant.now();
         return Jwts.builder()
                 .claim(JwtClaims.TOKEN_TYPE, JwtTokenType.REFRESH.name())
-                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId())
+                .claim(JwtClaims.USER_ID, principal.getUserPrincipal().getId().toString())
                 .subject(principal.getUsername())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(getRefreshExpiration(), SECONDS)))
@@ -64,7 +64,7 @@ public class JwtService {
     }
 
     public UUID extractUserId(String token) {
-        return UUID.fromString(parse().parseSignedClaims(token).getPayload().getSubject());
+        return UUID.fromString(parse().parseSignedClaims(token).getPayload().get(JwtClaims.USER_ID, String.class));
     }
 
     private Claims extractClaims(String token) {

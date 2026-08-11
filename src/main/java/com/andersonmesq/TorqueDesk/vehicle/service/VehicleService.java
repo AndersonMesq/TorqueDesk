@@ -19,19 +19,25 @@ public class VehicleService {
     private final VehicleRepository repository;
     private final VehicleMapper mapper;
 
-    public VehicleResponse findByPlate(String plate){
-        Vehicle vehicle = repository.findByPlate(plate).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+    public VehicleResponse findById(UUID id) {
+        Vehicle vehicle = repository.findById(id).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
         return mapper.toResponse(vehicle);
+    }
+
+    public VehicleResponse findByPlate(String plate){
+        Vehicle vehicles = repository.findByPlate(plate).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+        return mapper.toResponse(vehicles);
     }
 
     public VehicleResponse findByModel(String model){
-        Vehicle vehicle = repository.findByModel(model).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
-        return mapper.toResponse(vehicle);
+        Vehicle vehicles = repository.findByModel(model).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+        return mapper.toResponse(vehicles);
     }
 
+    @Transactional
     public VehicleResponse updateVehicle(UUID id, UpdateVehicleRequest request){
-        Vehicle vehicle = repository.findById(id).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
-        vehicle.setPlate(request.plate());
-        return mapper.toResponse(vehicle);
+        Vehicle vehicles = repository.findById(id).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+        vehicles.setPlate(request.plate());
+        return mapper.toResponse(vehicles);
     }
 }

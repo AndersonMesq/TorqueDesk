@@ -19,6 +19,7 @@ public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SystemRole systemRole;
 
@@ -31,7 +32,7 @@ public class User extends BaseEntity {
     @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 255)
     private String password;
 
     @Column(nullable = false)

@@ -1,7 +1,8 @@
 package com.andersonmesq.TorqueDesk.admin.service;
 
 import com.andersonmesq.TorqueDesk.admin.dto.CreateUserRequest;
-import com.andersonmesq.TorqueDesk.admin.exception.EmailAlreadyExistsException;
+import com.andersonmesq.TorqueDesk.admin.exception.UserEmailAlreadyExistException;
+import com.andersonmesq.TorqueDesk.admin.exception.UserNameAlreadyExistException;
 import com.andersonmesq.TorqueDesk.admin.mapper.AdminUserMapper;
 import com.andersonmesq.TorqueDesk.user.dto.UpdateUserRequest;
 import com.andersonmesq.TorqueDesk.user.dto.UserResponse;
@@ -10,6 +11,7 @@ import com.andersonmesq.TorqueDesk.user.exception.UserAlreadyDeactivatedExceptio
 import com.andersonmesq.TorqueDesk.user.exception.UserNotFoundException;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
+import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -49,15 +51,17 @@ public class AdminUserService {
 
     @Transactional
     public UserResponse create(@Valid CreateUserRequest request){
-        if(repository.existsByEmail(request.email().toLowerCase())) {
-            throw new EmailAlreadyExistsException("Email already exist");
-        }
+        if(repository.existsByEmail(request.email().toLowerCase())) throw new UserEmailAlreadyExistException("Email already exist");
+        if (repository.existsByUserName(request.userName().toLowerCase())) throw new UserNameAlreadyExistException("User already exist");
         User user = User.builder()
                 .fullName(request.fullName())
+                .userName(request.userName())
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
+                .systemRole(SystemRole.USER)
                 .enabled(true)
                 .build();
+        repository.save(user);
         return mapper.toResponse(user);
     }
 
@@ -71,7 +75,7 @@ public class AdminUserService {
     @Transactional
     public void activate(UUID id){
         User user = findUser(id);
-        if(Boolean.TRUE.equals(user.getEnabled())) throw new UserAlreadyActiveException("Tenant already deactivate");
+        if(Boolean.TRUE.equals(user.getEnabled())) throw new UserAlreadyActiveException("Tenant already active");
         user.setEnabled(true);
     }
 

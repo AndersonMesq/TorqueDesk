@@ -5,12 +5,14 @@ import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.UUID;
 
+@Slf4j
 @Getter
 @Builder
 @AllArgsConstructor
@@ -21,9 +23,17 @@ public class TorqueDeskPrincipal implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         if (workspacePrincipal != null){
+            log.debug("workspacePrincipal is null");
             return workspacePrincipal.getAuthorities();
         }
         return userPrincipal.getAuthorities();
+    }
+
+    public static TorqueDeskPrincipal fromUser(UserPrincipal userPrincipal){
+        return TorqueDeskPrincipal.builder()
+                .userPrincipal(UserPrincipal.create(userPrincipal))
+                .workspacePrincipal(null)
+                .build();
     }
 
     public static TorqueDeskPrincipal fromUser(User user){

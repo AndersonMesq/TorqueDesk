@@ -2,7 +2,6 @@ package com.andersonmesq.TorqueDesk.authentication.controller;
 
 import com.andersonmesq.TorqueDesk.authentication.dto.request.LoginRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshRequest;
-import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshTokenRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.WorkspaceSelectionRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.*;
 import com.andersonmesq.TorqueDesk.authentication.service.AuthenticationService;
@@ -17,22 +16,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
-@PreAuthorize("isAuthenticated()")
 public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/login")
-    @PreAuthorize("IsAnonymous()")
     public LoginResponse login(@RequestBody @Valid LoginRequest request){
         return service.login(request);
     }
 
     @PostMapping("/tenant")
+    @PreAuthorize("isAuthenticated()")
     public WorkspaceSelectionResponse selectWorkspace(@RequestBody @Valid WorkspaceSelectionRequest request){
         return service.selectWorkspace(request);
     }
 
     @PostMapping("/refresh")
+    @PreAuthorize("isAuthenticated()")
     public RefreshResponse refresh(@RequestBody @Valid RefreshRequest request) {
         return service.refresh(request);
     }

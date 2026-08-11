@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ServiceOrderService {
     private final VehicleRepository vehicleRepository;
+    private final ServiceOrderRepository serviceOrderRepository;
     private final ServiceOrderMapper mapper;
 
     public ServiceOrderResponse createService(@Valid CreateServiceOrderRequest request){
@@ -29,7 +30,7 @@ public class ServiceOrderService {
         ServiceOrder serviceOrder = ServiceOrder.builder()
                 .description(request.serviceDescription())
                 .build();
-
+        serviceOrderRepository.save(serviceOrder);
         return mapper.toResponse(serviceOrder);
     }
 }

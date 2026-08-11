@@ -4,8 +4,13 @@ target/
 !**/src/test/**/target/
 
 ### Specific ###
-anotações.txt
+zanotações/anotações.txt
 src/main/resources/application-dev.properties
+zanotações
+
+###log###
+src/main/resources/logs
+src/main/resources/logback-spring.xml
 
 ### STS ###
 .apt_generated

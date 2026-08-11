@@ -8,6 +8,7 @@ import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import com.andersonmesq.TorqueDesk.usertenant.dto.CreateUserTenantRequest;
 import com.andersonmesq.TorqueDesk.usertenant.dto.UserTenantResponse;
+import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantAlreadyExistException;
 import com.andersonmesq.TorqueDesk.usertenant.mapper.UserTenantMapper;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import com.andersonmesq.TorqueDesk.usertenant.repository.UserTenantRepository;
@@ -25,7 +26,7 @@ public class UserTenantService {
     private final UserTenantMapper mapper;
 
     public UserTenantResponse create(CreateUserTenantRequest request){
-        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new IllegalArgumentException("User already linked to tenant");
+        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new UserTenantAlreadyExistException("User already linked to tenant");
         User user = userRepository.findById(request.userId()).orElseThrow(() -> new UserNotFoundException("User not found"));
         Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
         UserTenant userTenant = UserTenant.builder()

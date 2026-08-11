@@ -10,6 +10,8 @@ import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 @SecurityScheme(
         name = "bearerAuth",
@@ -25,7 +27,8 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("TorqueDesk API")
                         .description("API para gerenciamento de oficinas mecânicas")
-                        .version("v1"));
+                        .version("v1"))
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
     }
 
     @Bean

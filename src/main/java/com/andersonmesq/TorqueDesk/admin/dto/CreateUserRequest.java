@@ -8,6 +8,11 @@ public record CreateUserRequest(
         @NotBlank(message = "User name is required")
         @Size(max = 100)
         String fullName,
+
+        @NotBlank(message = "User name for login is required")
+        @Size(max = 100)
+        String userName,
+
         @NotBlank(message = "Email is required")
         @Email
         String email,
