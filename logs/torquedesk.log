@@ -1,29 +1,29 @@
-2026-08-11 14:40:51.793 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 14:40:51.830 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 604 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 14:40:51.830 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 14:40:51.831 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 14:40:52.827 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 14:40:52.828 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 14:40:52.899 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 62 ms. Found 6 JPA repository interfaces.
-2026-08-11 14:40:53.390 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 14:40:53.402 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 14:40:53.404 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 14:40:53.404 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 14:40:53.456 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 14:40:53.457 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1584 ms
-2026-08-11 14:40:53.732 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 14:40:53.871 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2932e15f
-2026-08-11 14:40:53.872 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 14:40:53.893 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 14:40:53.901 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 14:40:53.934 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.023s)
-2026-08-11 14:40:53.982 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 14:40:53.985 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 14:40:54.073 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 14:40:54.128 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 14:40:54.163 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 14:40:54.372 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 14:40:54.436 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-08-21 08:46:58.964 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-08-21 08:46:59.001 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 10020 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
+2026-08-21 08:46:59.002 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
+2026-08-21 08:46:59.002 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
+2026-08-21 08:47:00.080 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-21 08:47:00.081 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-21 08:47:00.159 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 69 ms. Found 7 JPA repository interfaces.
+2026-08-21 08:47:00.710 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-08-21 08:47:00.721 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-08-21 08:47:00.722 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-21 08:47:00.722 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-08-21 08:47:00.785 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-08-21 08:47:00.785 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1746 ms
+2026-08-21 08:47:01.051 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 08:47:01.184 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@41e7a544
+2026-08-21 08:47:01.185 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 08:47:01.206 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
+2026-08-21 08:47:01.217 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
+2026-08-21 08:47:01.256 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 3 migrations (execution time 00:00.024s)
+2026-08-21 08:47:01.405 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 3
+2026-08-21 08:47:01.408 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
+2026-08-21 08:47:01.500 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-21 08:47:01.606 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
+2026-08-21 08:47:01.669 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-08-21 08:47:01.945 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-21 08:47:02.028 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 18.4
@@ -31,638 +31,47 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-08-11 14:40:55.130 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 14:40:55.167 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 14:40:55.357 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 14:40:55.679 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 14:40:55.782 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 14:40:55.925 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 14:40:56.353 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 14:40:56.688 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 14:40:56.704 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 14:40:56.714 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 5.279 seconds (process running for 5.575)
-2026-08-11 14:40:56.770 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 14:40:56.770 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 14:41:27.783 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 14:41:27.783 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 14:41:27.784 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 14:41:27.808 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.852 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.853 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.853 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.853 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.853 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:27.978 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:28.023 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:41:28.221 [http-nio-8080-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 188 ms
-2026-08-11 14:42:48.278 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:42:48.499 [http-nio-8080-exec-5] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 14:43:07.617 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:43:07.717 [http-nio-8080-exec-6] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 99 ms
-2026-08-11 14:43:40.393 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 14:49:29.544 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 14:49:29.548 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 14:49:29.557 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 14:49:29.559 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 14:49:29.561 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-08-11 15:10:17.385 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 15:10:17.414 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 1964 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 15:10:17.414 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 15:10:17.415 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 15:10:18.298 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 15:10:18.300 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 15:10:18.375 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 67 ms. Found 6 JPA repository interfaces.
-2026-08-11 15:10:18.887 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 15:10:18.897 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:10:18.898 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 15:10:18.899 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 15:10:18.954 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 15:10:18.954 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1506 ms
-2026-08-11 15:10:19.191 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 15:10:19.410 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5178345d
-2026-08-11 15:10:19.411 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 15:10:19.429 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 15:10:19.437 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 15:10:19.473 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.028s)
-2026-08-11 15:10:19.512 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 15:10:19.514 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 15:10:19.574 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 15:10:19.613 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 15:10:19.647 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 15:10:19.821 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 15:10:19.868 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 18.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-08-11 15:10:20.481 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 15:10:20.504 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:10:20.667 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 15:10:20.970 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 15:10:21.060 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 15:10:21.201 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 15:10:21.533 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 15:10:21.807 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:10:21.821 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 15:10:21.830 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 4.787 seconds (process running for 5.09)
-2026-08-11 15:10:21.875 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 15:10:21.876 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 15:10:25.463 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 15:10:25.463 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 15:10:25.464 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 15:10:25.485 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:10:25.485 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:10:25.679 [http-nio-8080-exec-2] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 172 ms
-2026-08-11 15:10:31.697 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/auth/login
-2026-08-11 15:10:31.697 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:10:31.900 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 15:11:05.859 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/1%20-%20Tenant%20Admin
-2026-08-11 15:11:05.859 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:11:05.962 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 101 ms
-2026-08-11 15:11:22.661 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:11:22.661 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:11:34.984 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:11:34.985 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:11:50.774 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:11:50.775 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:25:17.183 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 15:25:17.187 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 15:25:17.193 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:25:17.196 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 15:25:17.202 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-08-11 15:34:56.807 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 15:34:56.834 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 26088 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 15:34:56.834 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 15:34:56.834 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 15:34:57.682 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 15:34:57.683 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 15:34:57.755 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 6 JPA repository interfaces.
-2026-08-11 15:34:58.248 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 15:34:58.266 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:34:58.268 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 15:34:58.268 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 15:34:58.318 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 15:34:58.318 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1451 ms
-2026-08-11 15:34:58.602 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 15:34:58.849 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5eee3da9
-2026-08-11 15:34:58.850 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 15:34:58.867 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 15:34:58.874 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 15:34:58.901 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.020s)
-2026-08-11 15:34:58.940 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 15:34:58.942 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 15:34:59.005 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 15:34:59.046 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 15:34:59.074 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 15:34:59.266 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 15:34:59.315 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 18.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-08-11 15:34:59.908 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 15:34:59.931 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:35:00.096 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 15:35:00.387 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 15:35:00.477 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 15:35:00.608 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 15:35:00.946 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 15:35:01.226 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:35:01.241 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 15:35:01.250 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 4.792 seconds (process running for 5.08)
-2026-08-11 15:35:01.296 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 15:35:01.296 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 15:35:28.967 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 15:35:28.967 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 15:35:28.968 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 15:35:28.987 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:35:28.987 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:35:29.160 [http-nio-8080-exec-1] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 151 ms
-2026-08-11 15:35:33.339 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/auth/login
-2026-08-11 15:35:33.339 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:35:33.535 [http-nio-8080-exec-2] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 15:35:44.164 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/1%20-%20Tenant%20Admin
-2026-08-11 15:35:44.165 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:35:44.256 [http-nio-8080-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 90 ms
-2026-08-11 15:35:57.917 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:35:57.917 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): Bearer eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzMzMzMsImV4cCI6MTc4NjQ3NDIzM30.rPQv1SUBquJ3FZGfCq1CQN5g9DRR2f9sWUV6TP2IZ2PoZMjfAlMnUk13IOTeEp7k
-2026-08-11 15:35:57.917 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Token from header.substring(7): eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzMzMzMsImV4cCI6MTc4NjQ3NDIzM30.rPQv1SUBquJ3FZGfCq1CQN5g9DRR2f9sWUV6TP2IZ2PoZMjfAlMnUk13IOTeEp7k
-2026-08-11 15:35:57.938 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TokenType extract from jwtService.extractTokenType: IDENTITY
-2026-08-11 15:35:57.947 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - UserPrincipal in buildIdentityPrincipal Login/SystemRole:admin@torquedesk.com, SUPER_ADMIN
-2026-08-11 15:35:57.947 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TorqueDeskPrincipal getAuthorities in authenticate case IDENTITY:[ROLE_SUPER_ADMIN]
-2026-08-11 15:35:57.947 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - authentication value in setAuthentication: UsernamePasswordAuthenticationToken [Principal=com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal@d388c3a, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_SUPER_ADMIN]]
-2026-08-11 15:35:57.947 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - SecurityContext Authentication: type=UsernamePasswordAuthenticationToken, authenticated=true, authorities=[ROLE_SUPER_ADMIN], principalType=TorqueDeskPrincipal
-2026-08-11 15:35:57.968 [http-nio-8080-exec-5] DEBUG c.a.T.a.c.AdminTenantController - Tenant creation request: JoaoTurbinado
-2026-08-11 15:35:57.982 [http-nio-8080-exec-5] DEBUG c.a.T.a.s.TenantProvisioningService - Tenant save called
-2026-08-11 15:35:58.031 [http-nio-8080-exec-5] DEBUG c.a.T.a.s.TenantProvisioningService - User save called
-2026-08-11 15:35:58.031 [http-nio-8080-exec-5] DEBUG c.a.T.a.s.TenantProvisioningService - UserTenant save called
-2026-08-11 15:35:58.052 [http-nio-8080-exec-5] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: 23502
-2026-08-11 15:35:58.053 [http-nio-8080-exec-5] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - ERRO: o valor nulo na coluna "system_role" da relação "users" viola a restrição de não-nulo
-  Detalhe: Registro que falhou contém (bdeca0ff-5c6d-404e-b714-48453f9b36cb, Joao pedro, null, joao@example.com, $2a$10$k3XaYje92XlSJmDkdxRRCeBpmTyOltKXTIxvjwlAETEcJS.KULcyS, null, t, 2026-08-11 15:35:58.046338, 2026-08-11 15:35:58.046338).
-2026-08-11 15:35:58.058 [http-nio-8080-exec-5] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERRO: o valor nulo na coluna "system_role" da relação "users" viola a restrição de não-nulo
-  Detalhe: Registro que falhou contém (bdeca0ff-5c6d-404e-b714-48453f9b36cb, Joao pedro, null, joao@example.com, $2a$10$k3XaYje92XlSJmDkdxRRCeBpmTyOltKXTIxvjwlAETEcJS.KULcyS, null, t, 2026-08-11 15:35:58.046338, 2026-08-11 15:35:58.046338).] [insert into users (created_at,email,enabled,full_name,password,system_role,updated_at,user_name,id) values (?,?,?,?,?,?,?,?,?)]; SQL [insert into users (created_at,email,enabled,full_name,password,system_role,updated_at,user_name,id) values (?,?,?,?,?,?,?,?,?)]; constraint [null]] with root cause
-org.postgresql.util.PSQLException: ERRO: o valor nulo na coluna "system_role" da relação "users" viola a restrição de não-nulo
-  Detalhe: Registro que falhou contém (bdeca0ff-5c6d-404e-b714-48453f9b36cb, Joao pedro, null, joao@example.com, $2a$10$k3XaYje92XlSJmDkdxRRCeBpmTyOltKXTIxvjwlAETEcJS.KULcyS, null, t, 2026-08-11 15:35:58.046338, 2026-08-11 15:35:58.046338).
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2875)
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2560)
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:429)
-	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:526)
-	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:436)
-	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:196)
-	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:157)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
-	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:134)
-	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:55)
-	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132)
-	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:104)
-	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:110)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:644)
-	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:511)
-	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:414)
-	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41)
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
-	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1429)
-	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:491)
-	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2354)
-	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1978)
-	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169)
-	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267)
-	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
-	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:563)
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795)
-	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:698)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:416)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.andersonmesq.TorqueDesk.admin.service.TenantProvisioningService$$SpringCGLIB$$0.createTenant(<generated>)
-	at com.andersonmesq.TorqueDesk.admin.controller.AdminTenantController.create(AdminTenantController.java:35)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.proceed(AuthorizationManagerBeforeMethodInterceptor.java:268)
-	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.attemptAuthorization(AuthorizationManagerBeforeMethodInterceptor.java:263)
-	at org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor.invoke(AuthorizationManagerBeforeMethodInterceptor.java:196)
-	at org.springframework.security.config.annotation.method.configuration.DeferringMethodInterceptor.invoke(DeferringMethodInterceptor.java:44)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at com.andersonmesq.TorqueDesk.admin.controller.AdminTenantController$$SpringCGLIB$$0.create(<generated>)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:490)
-	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:351)
-	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:83)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:129)
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at com.andersonmesq.TorqueDesk.security.jwt.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:52)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
-	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:334)
-	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:225)
-	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1797)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-2026-08-11 15:38:42.567 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 15:38:42.570 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 15:38:42.576 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:38:42.578 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 15:38:42.580 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-08-11 15:38:44.896 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 15:38:44.923 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 24968 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 15:38:44.923 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 15:38:44.924 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 15:38:45.817 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 15:38:45.818 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 15:38:45.897 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 6 JPA repository interfaces.
-2026-08-11 15:38:46.356 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 15:38:46.363 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:38:46.365 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 15:38:46.365 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 15:38:46.408 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 15:38:46.409 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1450 ms
-2026-08-11 15:38:46.630 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 15:38:46.744 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33eab2e8
-2026-08-11 15:38:46.745 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 15:38:46.761 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 15:38:46.767 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 15:38:46.800 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.026s)
-2026-08-11 15:38:46.848 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 15:38:46.850 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 15:38:46.916 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 15:38:46.955 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 15:38:46.981 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 15:38:47.183 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 15:38:47.236 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 18.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-08-11 15:38:47.861 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 15:38:47.883 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:38:48.044 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 15:38:48.335 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 15:38:48.424 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 15:38:48.568 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 15:38:48.899 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 15:38:49.181 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:38:49.194 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 15:38:49.203 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 4.674 seconds (process running for 4.95)
-2026-08-11 15:38:49.251 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 15:38:49.252 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 15:39:00.489 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 15:39:00.489 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 15:39:00.490 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 15:39:00.510 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:39:00.510 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:39:00.681 [http-nio-8080-exec-2] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 148 ms
-2026-08-11 15:39:10.841 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/auth/login
-2026-08-11 15:39:10.841 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:39:11.041 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 15:39:24.635 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/1%20-%20Tenant%20Admin
-2026-08-11 15:39:24.636 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:39:24.725 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 87 ms
-2026-08-11 15:39:29.840 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:39:29.840 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:09.282 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 15:46:09.285 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 15:46:09.292 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:46:09.294 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 15:46:09.296 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-08-11 15:46:11.539 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 15:46:11.570 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 25188 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 15:46:11.570 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 15:46:11.571 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 15:46:12.405 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 15:46:12.406 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 15:46:12.476 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
-2026-08-11 15:46:12.943 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 15:46:12.953 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:46:12.954 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 15:46:12.954 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 15:46:13.002 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 15:46:13.002 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1394 ms
-2026-08-11 15:46:13.225 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 15:46:13.455 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7544260a
-2026-08-11 15:46:13.456 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 15:46:13.479 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 15:46:13.486 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 15:46:13.512 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.019s)
-2026-08-11 15:46:13.549 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 15:46:13.551 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 15:46:13.614 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 15:46:13.652 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 15:46:13.681 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 15:46:13.861 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 15:46:13.910 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 18.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-08-11 15:46:14.503 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 15:46:14.527 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:46:14.681 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 15:46:14.982 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 15:46:15.065 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 15:46:15.195 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 15:46:15.528 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 15:46:15.802 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:46:15.812 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 15:46:15.821 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 4.618 seconds (process running for 4.892)
-2026-08-11 15:46:15.864 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 15:46:15.865 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 15:46:25.559 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 15:46:25.560 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 15:46:25.561 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 15:46:25.582 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.html
-2026-08-11 15:46:25.582 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.620 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui.css
-2026-08-11 15:46:25.620 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.css
-2026-08-11 15:46:25.620 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.620 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.620 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-bundle.js
-2026-08-11 15:46:25.620 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.620 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-standalone-preset.js
-2026-08-11 15:46:25.620 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.620 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-initializer.js
-2026-08-11 15:46:25.620 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.717 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/swagger-config
-2026-08-11 15:46:25.718 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/favicon-32x32.png
-2026-08-11 15:46:25.718 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.718 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.753 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:46:25.753 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:25.941 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 178 ms
-2026-08-11 15:46:28.290 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/99%20-%20test
-2026-08-11 15:46:28.291 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:28.433 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 141 ms
-2026-08-11 15:46:47.962 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/auth/login
-2026-08-11 15:46:47.963 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:46:48.180 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 15:47:28.015 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:47:28.015 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): Bearer eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzQwMDgsImV4cCI6MTc4NjQ3NDkwOH0.KvqyQcLcnFw0sLgNza7dL3bydWXSQPe4Yhs9ogw1l3ngR60kklLeTqqp-xYmjOor
-2026-08-11 15:47:28.015 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Token from header.substring(7): eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzQwMDgsImV4cCI6MTc4NjQ3NDkwOH0.KvqyQcLcnFw0sLgNza7dL3bydWXSQPe4Yhs9ogw1l3ngR60kklLeTqqp-xYmjOor
-2026-08-11 15:47:28.031 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TokenType extract from jwtService.extractTokenType: IDENTITY
-2026-08-11 15:47:28.042 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - UserPrincipal in buildIdentityPrincipal Login/SystemRole:admin@torquedesk.com, SUPER_ADMIN
-2026-08-11 15:47:28.042 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TorqueDeskPrincipal getAuthorities in authenticate case IDENTITY:[ROLE_SUPER_ADMIN]
-2026-08-11 15:47:28.042 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - authentication value in setAuthentication: UsernamePasswordAuthenticationToken [Principal=com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal@44da7186, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_SUPER_ADMIN]]
-2026-08-11 15:47:28.042 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - SecurityContext Authentication: type=UsernamePasswordAuthenticationToken, authenticated=true, authorities=[ROLE_SUPER_ADMIN], principalType=TorqueDeskPrincipal
-2026-08-11 15:47:28.060 [http-nio-8080-exec-4] DEBUG c.a.T.a.c.AdminTenantController - Tenant creation request: JoaoTurbo
-2026-08-11 15:47:28.075 [http-nio-8080-exec-4] DEBUG c.a.T.a.s.TenantProvisioningService - Tenant save called
-2026-08-11 15:47:28.125 [http-nio-8080-exec-4] DEBUG c.a.T.a.s.TenantProvisioningService - User save called
-2026-08-11 15:47:28.126 [http-nio-8080-exec-4] DEBUG c.a.T.a.s.TenantProvisioningService - UserTenant save called
-2026-08-11 15:58:13.802 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:58:13.802 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:18.111 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 15:58:18.113 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 15:58:18.120 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:58:18.122 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 15:58:18.127 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-08-11 15:58:20.521 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
-2026-08-11 15:58:20.552 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Starting TorqueDeskApplication using Java 21.0.11 with PID 13760 (C:\Users\ander\IdeaProjects\TorqueDesk\target\classes started by ander in C:\Users\ander\IdeaProjects\TorqueDesk)
-2026-08-11 15:58:20.552 [main] DEBUG c.a.TorqueDesk.TorqueDeskApplication - Running with Spring Boot v3.5.14, Spring v6.2.18
-2026-08-11 15:58:20.552 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - The following 1 profile is active: "dev"
-2026-08-11 15:58:21.388 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-11 15:58:21.389 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-11 15:58:21.456 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
-2026-08-11 15:58:21.956 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-08-11 15:58:21.965 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:58:21.966 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-08-11 15:58:21.967 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.54]
-2026-08-11 15:58:22.013 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-08-11 15:58:22.014 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1428 ms
-2026-08-11 15:58:22.252 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-11 15:58:22.381 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@11309dd4
-2026-08-11 15:58:22.382 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-11 15:58:22.399 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:postgresql://localhost:5432/torquedesk_db (PostgreSQL 18.4)
-2026-08-11 15:58:22.406 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: PostgreSQL 18.4 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 17.
-2026-08-11 15:58:22.432 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 2 migrations (execution time 00:00.020s)
-2026-08-11 15:58:22.479 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "public": 2
-2026-08-11 15:58:22.480 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "public" is up to date. No migration necessary.
-2026-08-11 15:58:22.545 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-11 15:58:22.588 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.49.Final
-2026-08-11 15:58:22.616 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-08-11 15:58:22.795 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-11 15:58:22.848 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 18.4
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2026-08-11 15:58:23.465 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-08-11 15:58:23.488 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:58:23.649 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-11 15:58:23.939 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2026-08-11 15:58:24.025 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
-2026-08-11 15:58:24.182 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-08-11 15:58:24.554 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
-2026-08-11 15:58:24.845 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
-2026-08-11 15:58:24.855 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-08-11 15:58:24.864 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 4.696 seconds (process running for 5.001)
-2026-08-11 15:58:24.906 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
-2026-08-11 15:58:24.906 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
-2026-08-11 15:58:25.100 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-08-11 15:58:25.100 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-08-11 15:58:25.101 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-08-11 15:58:25.122 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.html
-2026-08-11 15:58:25.122 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.159 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui.css
-2026-08-11 15:58:25.159 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-bundle.js
-2026-08-11 15:58:25.159 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.159 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.159 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.css
-2026-08-11 15:58:25.159 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-standalone-preset.js
-2026-08-11 15:58:25.160 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.160 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.160 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-initializer.js
-2026-08-11 15:58:25.160 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.265 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/favicon-32x32.png
-2026-08-11 15:58:25.266 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.266 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/swagger-config
-2026-08-11 15:58:25.266 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.300 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:58:25.300 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:25.477 [http-nio-8080-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 168 ms
-2026-08-11 15:58:27.103 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.html
-2026-08-11 15:58:27.104 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.119 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui.css
-2026-08-11 15:58:27.119 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.123 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/index.css
-2026-08-11 15:58:27.123 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.123 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-bundle.js
-2026-08-11 15:58:27.123 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-ui-standalone-preset.js
-2026-08-11 15:58:27.123 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.123 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.124 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/swagger-initializer.js
-2026-08-11 15:58:27.124 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.198 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/swagger-config
-2026-08-11 15:58:27.198 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.216 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /swagger-ui/favicon-32x32.png
-2026-08-11 15:58:27.217 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:27.221 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/0%20-%20Authentication
-2026-08-11 15:58:27.221 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:43.935 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/auth/login
-2026-08-11 15:58:43.935 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:44.131 [http-nio-8080-exec-7] DEBUG c.a.T.a.s.AuthenticationService - Authenticating user: [ROLE_SUPER_ADMIN]
-2026-08-11 15:58:53.880 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: GET, /v3/api-docs/1%20-%20Tenant%20Admin
-2026-08-11 15:58:53.880 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
-2026-08-11 15:58:53.970 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 89 ms
-2026-08-11 15:59:23.011 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Request: POST, /api/v1/admin/tenants
-2026-08-11 15:59:23.011 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): Bearer eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzQ3MjQsImV4cCI6MTc4NjQ3NTYyNH0.fouC_7ghIwlT_RV9jfjjjuGjMXB7azJ7mZ2NJ0xtIhZScLNiB-Ets9Eh6tkCNJwQ
-2026-08-11 15:59:23.011 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Token from header.substring(7): eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODY0NzQ3MjQsImV4cCI6MTc4NjQ3NTYyNH0.fouC_7ghIwlT_RV9jfjjjuGjMXB7azJ7mZ2NJ0xtIhZScLNiB-Ets9Eh6tkCNJwQ
-2026-08-11 15:59:23.027 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TokenType extract from jwtService.extractTokenType: IDENTITY
-2026-08-11 15:59:23.035 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - UserPrincipal in buildIdentityPrincipal Login/SystemRole:admin@torquedesk.com, SUPER_ADMIN
-2026-08-11 15:59:23.035 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TorqueDeskPrincipal getAuthorities in authenticate case IDENTITY:[ROLE_SUPER_ADMIN]
-2026-08-11 15:59:23.035 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - authentication value in setAuthentication: UsernamePasswordAuthenticationToken [Principal=com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal@751b4e53, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_SUPER_ADMIN]]
-2026-08-11 15:59:23.036 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - SecurityContext Authentication: type=UsernamePasswordAuthenticationToken, authenticated=true, authorities=[ROLE_SUPER_ADMIN], principalType=TorqueDeskPrincipal
-2026-08-11 15:59:23.055 [http-nio-8080-exec-1] DEBUG c.a.T.a.c.AdminTenantController - Tenant creation request: PedroTurbo
-2026-08-11 15:59:23.069 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.TenantProvisioningService - Tenant save called
-2026-08-11 15:59:23.119 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.TenantProvisioningService - User save called
-2026-08-11 15:59:23.119 [http-nio-8080-exec-1] DEBUG c.a.T.a.s.TenantProvisioningService - UserTenant save called
-2026-08-11 15:59:59.625 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-08-11 15:59:59.628 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-08-11 15:59:59.634 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-08-11 15:59:59.636 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-08-11 15:59:59.640 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-08-21 08:47:02.875 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-21 08:47:02.916 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-21 08:47:03.163 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-21 08:47:03.658 [main] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2026-08-21 08:47:03.776 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-08-21 08:47:03.953 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-21 08:47:04.481 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-08-21 08:47:04.791 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-08-21 08:47:04.801 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-08-21 08:47:04.810 [main] INFO  c.a.TorqueDesk.TorqueDeskApplication - Started TorqueDeskApplication in 6.23 seconds (process running for 6.573)
+2026-08-21 08:47:04.861 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-08-21 08:47:04.862 [main] WARN  o.s.c.events.SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-08-21 08:47:05.446 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-21 08:47:05.446 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-08-21 08:47:05.447 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-08-21 08:47:05.466 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.502 [http-nio-8080-exec-1] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.502 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.503 [http-nio-8080-exec-4] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.503 [http-nio-8080-exec-6] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.503 [http-nio-8080-exec-5] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.604 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.604 [http-nio-8080-exec-8] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.635 [http-nio-8080-exec-3] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:05.825 [http-nio-8080-exec-3] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 181 ms
+2026-08-21 08:47:13.882 [http-nio-8080-exec-10] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:13.993 [http-nio-8080-exec-10] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 109 ms
+2026-08-21 08:47:27.527 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): Bearer eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODcyNTg1NjcsImV4cCI6MTg3NzI1ODU2N30.kCxqfhVtHM17CqwY4upVDB2Tz5OSjH2Ih-YNbdZO7YCivt7ZdsItM3PzPH1y_YCX
+2026-08-21 08:47:27.663 [http-nio-8080-exec-2] INFO  c.a.T.s.jwt.JwtAuthenticationFilter - IdentityPrincipal built
+2026-08-21 08:47:27.664 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TorqueDeskPrincipal getAuthorities in authenticate case IDENTITY:[ROLE_SUPER_ADMIN]
+2026-08-21 08:47:27.664 [http-nio-8080-exec-2] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - authentication set
+2026-08-21 08:47:27.670 [http-nio-8080-exec-2] DEBUG c.a.T.a.service.AdminTenantService - Finding tenant by id 92bba57a-d388-4989-82c9-75d92ab57e6a
+2026-08-21 08:47:39.027 [http-nio-8080-exec-9] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): null
+2026-08-21 08:47:39.116 [http-nio-8080-exec-9] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 88 ms
+2026-08-21 08:48:11.371 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - Header extract from request.getHeader("Authorization"): Bearer eyJhbGciOiJIUzM4NCJ9.eyJ0b2tlbl90eXBlIjoiSURFTlRJVFkiLCJ1c2VyX2lkIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAxIiwic3ViIjoiYWRtaW5AdG9ycXVlZGVzay5jb20iLCJpYXQiOjE3ODcyNTg1NjcsImV4cCI6MTg3NzI1ODU2N30.kCxqfhVtHM17CqwY4upVDB2Tz5OSjH2Ih-YNbdZO7YCivt7ZdsItM3PzPH1y_YCX
+2026-08-21 08:48:11.374 [http-nio-8080-exec-7] INFO  c.a.T.s.jwt.JwtAuthenticationFilter - IdentityPrincipal built
+2026-08-21 08:48:11.375 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - TorqueDeskPrincipal getAuthorities in authenticate case IDENTITY:[ROLE_SUPER_ADMIN]
+2026-08-21 08:48:11.375 [http-nio-8080-exec-7] DEBUG c.a.T.s.jwt.JwtAuthenticationFilter - authentication set
+2026-08-21 08:48:11.424 [http-nio-8080-exec-7] DEBUG c.a.T.s.service.ServiceOrderService - Service order created. serviceOrderId=null, vehicleId=b8c3567d-c69b-417b-af7a-f86546127ac7, createdBy=00000000-0000-0000-0000-000000000001
+2026-08-21 08:49:48.246 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-21 08:49:48.250 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-21 08:49:48.257 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-21 08:49:48.258 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-08-21 08:49:48.261 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

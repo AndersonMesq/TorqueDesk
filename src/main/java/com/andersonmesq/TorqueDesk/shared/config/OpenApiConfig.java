@@ -26,7 +26,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(new Info()
                         .title("TorqueDesk API")
-                        .description("API para gerenciamento de oficinas mecânicas")
+                        .description("API for workshop management")
                         .version("v1"))
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
     }
@@ -56,17 +56,33 @@ public class OpenApiConfig {
     }
 
     @Bean
+    public GroupedOpenApi userTenantApi(){
+        return GroupedOpenApi.builder()
+                .group("3 - User-tenants")
+                .pathsToMatch("/api/v1/user-tenants/**")
+                .build();
+    }
+
+    @Bean
     public GroupedOpenApi customerApi(){
         return GroupedOpenApi.builder()
-                .group("3 - Customers")
+                .group("4 - Customers")
                 .pathsToMatch("/api/v1/customers/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi vehicleApi(){
+        return GroupedOpenApi.builder()
+                .group("5 - Vehicles")
+                .pathsToMatch("/api/v1/vehicles/**")
                 .build();
     }
 
     @Bean
     public GroupedOpenApi serviceApi(){
         return GroupedOpenApi.builder()
-                .group("4 - Services")
+                .group("6 - Services")
                 .pathsToMatch("/api/v1/services/**")
                 .build();
     }
@@ -74,24 +90,8 @@ public class OpenApiConfig {
     @Bean
     public GroupedOpenApi userApi(){
         return GroupedOpenApi.builder()
-                .group("5 - Users")
+                .group("7 - Users")
                 .pathsToMatch("/api/v1/users/**")
-                .build();
-    }
-
-    @Bean
-    public GroupedOpenApi userTenantApi(){
-        return GroupedOpenApi.builder()
-                .group("6 - User-tenants")
-                .pathsToMatch("/api/v1/user-tenants/**")
-                .build();
-    }
-
-    @Bean
-    public GroupedOpenApi vehicleApi(){
-        return GroupedOpenApi.builder()
-                .group("7 - Vehicles")
-                .pathsToMatch("/api/v1/vehicles/**")
                 .build();
     }
 }

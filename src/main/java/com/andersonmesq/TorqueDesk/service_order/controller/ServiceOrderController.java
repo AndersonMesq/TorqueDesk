@@ -9,17 +9,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/v1/services")
 @RequiredArgsConstructor
-@PreAuthorize("isAuthenticated")
 public class ServiceOrderController {
     private final ServiceOrderService service;
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ATTENDANT', 'MECHANIC')")
     @ResponseStatus(HttpStatus.CREATED)
     public ServiceOrderResponse create(@RequestBody @Valid CreateServiceOrderRequest request){
-        return service.createService(request);
+        return service.create(request);
+    }
+
+    @PreAuthorize("hasAnyRole('OWNER','MECHANIC')")
+    @PostMapping("{id}/assignments/start")
+    public ServiceOrderResponse startAssignment(@PathVariable UUID id){
+        return service.startAssignment(id);
+    }
+
+    @PreAuthorize("hasAnyRole('OWNER','MECHANIC')")
+    @PatchMapping("{id}/assignments/finish")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void finishAssignment(@PathVariable UUID id){
+        service.finishAssignment(id);
     }
 }

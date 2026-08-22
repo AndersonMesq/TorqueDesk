@@ -39,4 +39,51 @@ public class UserTenantService {
 
         return mapper.toResponse(userTenant);
     }
+
+    public UserTenantResponse createOwner(CreateUserTenantRequest request){
+        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new UserTenantAlreadyExistException("User already linked to tenant");
+        User user = userRepository.findById(request.userId()).orElseThrow(() -> new UserNotFoundException("User not found"));
+        Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
+        UserTenant userTenant = UserTenant.builder()
+                .user(user)
+                .tenant(tenant)
+                .role(request.role())
+                .enabled(true)
+                .build();
+        repository.save(userTenant);
+
+        return mapper.toResponse(userTenant);
+    }
+
+    public UserTenantResponse createAttendant(CreateUserTenantRequest request){
+        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new UserTenantAlreadyExistException("User already linked to tenant");
+        User user = userRepository.findById(request.userId()).orElseThrow(() -> new UserNotFoundException("User not found"));
+        Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
+        UserTenant userTenant = UserTenant.builder()
+                .user(user)
+                .tenant(tenant)
+                .role(request.role())
+                .enabled(true)
+                .build();
+        repository.save(userTenant);
+
+        return mapper.toResponse(userTenant);
+    }
+
+    public UserTenantResponse createMechanic(CreateUserTenantRequest request){
+        if(repository.existsByUserIdAndTenantId(request.userId(), request.tenantId())) throw new UserTenantAlreadyExistException("User already linked to tenant");
+        User user = userRepository.findById(request.userId()).orElseThrow(() -> new UserNotFoundException("User not found"));
+        Tenant tenant = tenantRepository.findById(request.tenantId()).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
+        UserTenant userTenant = UserTenant.builder()
+                .user(user)
+                .tenant(tenant)
+                .role(request.role())
+                .enabled(true)
+                .build();
+        repository.save(userTenant);
+
+        return mapper.toResponse(userTenant);
+    }
+
+    private UserTenant findUser(String userId) {}
 }

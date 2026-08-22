@@ -1,6 +1,6 @@
 package com.andersonmesq.TorqueDesk.service_order.model;
 
-import com.andersonmesq.TorqueDesk.service_order.enuns.ServiceOrderStatus;
+import com.andersonmesq.TorqueDesk.service_order.service_order_status.ServiceOrderStatus;
 import com.andersonmesq.TorqueDesk.shared.entity.BaseEntity;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.vehicle.model.Vehicle;
@@ -35,13 +35,14 @@ public class ServiceOrder extends BaseEntity {
     private BigDecimal price;
 
     @OneToMany(mappedBy = "serviceOrder", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private List<ServiceOrderAssignment> assignments = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id", nullable = false)
-    private Vehicle vehicles;
+    private Vehicle vehicle;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mechanic_id")
-    private User mechanic;
+    @JoinColumn(name = "created_by_id", nullable = false)
+    private User createdBy;
 }
