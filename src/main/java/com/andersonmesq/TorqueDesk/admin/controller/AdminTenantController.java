@@ -8,8 +8,10 @@ import com.andersonmesq.TorqueDesk.tenant.dto.TenantResponse;
 import com.andersonmesq.TorqueDesk.tenant.dto.UpdateTenantRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/admin/tenants")
 @RequiredArgsConstructor
@@ -28,6 +31,7 @@ public class AdminTenantController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public TenantProvisionResponse create(@RequestBody @Valid CreateTenantRequest request) {
+        log.debug("Tenant creation request: {}", request.companyName());
         return provisioningService.createTenant(request);
     }
 
@@ -37,18 +41,16 @@ public class AdminTenantController {
     }
 
     @GetMapping
-    public Page<TenantResponse> findAll(@PageableDefault(size = 20) Pageable pageable) {
+    public Page<TenantResponse> findAll(@PageableDefault(sort = "name",direction = Sort.Direction.ASC, size = 20) Pageable pageable) {
         return tenantService.findAll(pageable);
     }
 
-    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @PatchMapping("/{id}/deactivate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deactivate(@PathVariable UUID id) {
         tenantService.deactivate(id);
     }
 
-    @PreAuthorize("hasRole('SUPER_ADMIN')")
     @PatchMapping("/{id}/activate")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void activate(@PathVariable UUID id) {

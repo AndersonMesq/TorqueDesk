@@ -1,6 +1,7 @@
 package com.andersonmesq.TorqueDesk.user.model;
 
 import com.andersonmesq.TorqueDesk.shared.entity.BaseEntity;
+import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,13 +19,20 @@ public class User extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private SystemRole systemRole;
+
     @Column(nullable = false, length = 150)
     private String fullName;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
+    private String userName;
+
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 255)
     private String password;
 
     @Column(nullable = false)

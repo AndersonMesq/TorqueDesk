@@ -1,35 +1,38 @@
 package com.andersonmesq.TorqueDesk.user.controller;
 
+import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
 import com.andersonmesq.TorqueDesk.user.dto.ChangePasswordRequest;
 import com.andersonmesq.TorqueDesk.user.dto.UpdateUserRequest;
 import com.andersonmesq.TorqueDesk.user.dto.UserResponse;
+import com.andersonmesq.TorqueDesk.user.mapper.UserMapper;
 import com.andersonmesq.TorqueDesk.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService service;
 
-    @GetMapping("/{id}/me")
-    public UserResponse findMe(@PathVariable UUID id) {
-        return service.findMe(id);
+    @GetMapping("/me")
+    public UserResponse findMe() {
+        return service.findMe();
     }
 
-    @PutMapping("/{id}/profile")
-    public UserResponse updateProfile(@PathVariable UUID id, @RequestBody @Valid UpdateUserRequest request) {
-        return service.updateProfile(id, request);
+    @PutMapping("/me")
+    public UserResponse updateProfile(@RequestBody @Valid UpdateUserRequest request) {
+        return service.updateProfile(request);
     }
 
-    @PatchMapping("/{id}/password")
+    @PatchMapping("/me/password")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void changePassword(@PathVariable UUID id, @RequestBody @Valid ChangePasswordRequest request) {
-        service.changePassword(id, request);
+    public void changePassword(@RequestBody @Valid ChangePasswordRequest request) {
+        service.changePassword(request);
     }
 }

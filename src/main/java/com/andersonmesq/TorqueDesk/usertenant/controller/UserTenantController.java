@@ -5,11 +5,13 @@ import com.andersonmesq.TorqueDesk.usertenant.dto.UserTenantResponse;
 import com.andersonmesq.TorqueDesk.usertenant.service.UserTenantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/user-tenants")
 @RequiredArgsConstructor
+@PreAuthorize("hasRole('SUPER_ADMIN')")
 public class UserTenantController {
     private final UserTenantService service;
 

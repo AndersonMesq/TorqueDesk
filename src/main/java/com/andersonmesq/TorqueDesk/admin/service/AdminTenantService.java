@@ -11,6 +11,7 @@ import com.andersonmesq.TorqueDesk.tenant.mapper.TenantMapper;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ import java.util.UUID;
 import static com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus.INACTIVE;
 import static com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus.ACTIVE;
 
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -30,6 +31,7 @@ public class AdminTenantService {
     private final TenantMapper mapper;
 
     private Tenant findTenant(UUID id) {
+        log.debug("Finding tenant by id {}", id);
         return repository.findById(id).orElseThrow(() -> new TenantNotFoundException("Tenant not found"));
     }
 
@@ -50,7 +52,7 @@ public class AdminTenantService {
         if(repository.existsBySlugAndIdNot(newSlug, id)) {
             throw new DuplicateSlugException("Slug already exists");
         }
-        tenant.setSlug(SlugGenerator.generate(request.companyName()));
+        tenant.setSlug(newSlug);
         return mapper.toResponse(tenant);
     }
 
@@ -59,7 +61,6 @@ public class AdminTenantService {
         Tenant tenant = findTenant(id);
         if(tenant.getStatus() == INACTIVE) throw new TenantAlreadyDeactivatedException("Tenant already deactivate");
         tenant.setStatus(INACTIVE);
-        repository.save(tenant);
     }
 
     @Transactional
@@ -67,6 +68,5 @@ public class AdminTenantService {
         Tenant tenant = findTenant(id);
         if(tenant.getStatus() == ACTIVE) throw new TenantAlreadyActiveException("Tenant already active");
         tenant.setStatus(ACTIVE);
-        repository.save(tenant);
     }
 }
