@@ -8,6 +8,7 @@ import com.andersonmesq.TorqueDesk.tenant.dto.CreateTenantRequest;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
+import com.andersonmesq.TorqueDesk.user.exception.OwnerAlreadyExistException;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import com.andersonmesq.TorqueDesk.user.systemrole.SystemRole;
@@ -35,6 +36,9 @@ public class TenantProvisioningService {
         String slug = SlugGenerator.generate(request.companyName());
         if (tenantRepository.existsBySlug(slug)) {
             throw new DuplicateSlugException("Tenant already exists");
+        }
+        if (userRepository.existsByEmail(request.ownerEmail().toLowerCase())) {
+            throw new OwnerAlreadyExistException("Owner with this email already exists");
         }
         Tenant tenant = Tenant.builder()
                 .name(request.companyName())

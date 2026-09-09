@@ -75,14 +75,14 @@ public class AdminUserService {
     @Transactional
     public void activate(UUID id){
         User user = findUser(id);
-        if(Boolean.TRUE.equals(user.getEnabled())) throw new UserAlreadyActiveException("Tenant already active");
+        if(Boolean.TRUE.equals(user.getEnabled())) throw new UserAlreadyActiveException("User already active");
         user.setEnabled(true);
     }
 
     @Transactional
     public void deactivate(UUID id){
         User user = findUser(id);
-        if(Boolean.FALSE.equals(user.getEnabled())) throw new UserAlreadyDeactivatedException("Tenant already deactivated");
+        if(Boolean.FALSE.equals(user.getEnabled())) throw new UserAlreadyDeactivatedException("User already deactivated");
         user.setEnabled(false);
     }
 }

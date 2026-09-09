@@ -12,6 +12,7 @@ import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantAlreadyExistEx
 import com.andersonmesq.TorqueDesk.usertenant.mapper.UserTenantMapper;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import com.andersonmesq.TorqueDesk.usertenant.repository.UserTenantRepository;
+import com.andersonmesq.TorqueDesk.usertenant.role.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +48,7 @@ public class UserTenantService {
         UserTenant userTenant = UserTenant.builder()
                 .user(user)
                 .tenant(tenant)
-                .role(request.role())
+                .role(Role.OWNER)
                 .enabled(true)
                 .build();
         repository.save(userTenant);
@@ -62,7 +63,7 @@ public class UserTenantService {
         UserTenant userTenant = UserTenant.builder()
                 .user(user)
                 .tenant(tenant)
-                .role(request.role())
+                .role(Role.ATTENDANT)
                 .enabled(true)
                 .build();
         repository.save(userTenant);
@@ -77,13 +78,11 @@ public class UserTenantService {
         UserTenant userTenant = UserTenant.builder()
                 .user(user)
                 .tenant(tenant)
-                .role(request.role())
+                .role(Role.MECHANIC)
                 .enabled(true)
                 .build();
         repository.save(userTenant);
 
         return mapper.toResponse(userTenant);
     }
-
-    private UserTenant findUser(String userId) {}
 }
