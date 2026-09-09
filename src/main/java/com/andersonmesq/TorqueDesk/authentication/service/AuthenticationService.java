@@ -16,6 +16,7 @@ import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
 import com.andersonmesq.TorqueDesk.tenant.exception.AccessDeniedException;
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantAlreadyDeactivatedException;
+import com.andersonmesq.TorqueDesk.user.exception.UserNotFoundException;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
 import com.andersonmesq.TorqueDesk.usertenant.exception.UserTenantDisabledException;
@@ -64,10 +65,9 @@ public class AuthenticationService {
     }
 
     public RefreshResponse refresh(RefreshRequest request) {
-        if (!jwtService.validateRefreshToken(request.refreshToken()))
-            throw new AccessDeniedException("Invalid refresh token");
+        if (!jwtService.validateRefreshToken(request.refreshToken())) throw new AccessDeniedException("Invalid refresh token");
         UUID userId = jwtService.extractUserId(request.refreshToken());
-        User user = userRepository.findById(userId).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
         validateUser(user);
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(user);
         String identityToken = jwtService.generateIdentityToken(principal);
