@@ -4,6 +4,7 @@ import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.service_order.dto.CreateServiceOrderRequest;
 import com.andersonmesq.TorqueDesk.service_order.dto.ServiceOrderResponse;
+import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderAssignmentAlreadyFinishedException;
 import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderAssignmentAlreadyStartedException;
 import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderNotFoundException;
 import com.andersonmesq.TorqueDesk.service_order.mapper.ServiceOrderMapper;
@@ -56,7 +57,6 @@ public class ServiceOrderService {
         TorqueDeskPrincipal principal = securityUtils.getPrincipal();
         Vehicle vehicle = findVehicle(request.vehicleId());
         User createBy = findUser(principal.getUserId());
-
         ServiceOrder serviceOrder = ServiceOrder.builder()
                 .description(request.serviceDescription())
                 .vehicle(vehicle)
@@ -73,9 +73,8 @@ public class ServiceOrderService {
         TorqueDeskPrincipal principal = securityUtils.getPrincipal();
         ServiceOrder serviceOrder = findServiceOrder(serviceOrderId);
         UUID employeeId = principal.getUserId();
-
         if (assignmentRepository.existsByServiceOrderIdAndEmployeeIdAndFinishedAtIsNull(serviceOrderId, employeeId))
-            throw new ServiceOrderAssignmentAlreadyStartedException("Assignment not found");
+            throw new ServiceOrderAssignmentAlreadyStartedException("Assignment already started");
         User employee = findUser(employeeId);
         ServiceOrderAssignment assignment = ServiceOrderAssignment.builder()
                 .serviceOrder(serviceOrder)
@@ -90,7 +89,7 @@ public class ServiceOrderService {
     public void finishAssignment(UUID serviceOrderId) {
         TorqueDeskPrincipal principal = securityUtils.getPrincipal();
         ServiceOrderAssignment assignment = assignmentRepository.findByServiceOrderIdAndEmployeeIdAndFinishedAtIsNull(serviceOrderId, principal.getUserId())
-                .orElseThrow(() -> new ServiceOrderAssignmentAlreadyStartedException("Active assignment not found"));
+                .orElseThrow(() -> new ServiceOrderNotFoundException("ServiceOrder not found"));
         assignment.setFinishedAt(LocalDateTime.now());
         log.debug("Employee {} finished assignment {}", principal.getUserId(), assignment.getId());
     }

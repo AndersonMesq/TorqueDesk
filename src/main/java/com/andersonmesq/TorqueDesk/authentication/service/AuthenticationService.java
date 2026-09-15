@@ -28,7 +28,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -59,7 +58,6 @@ public class AuthenticationService {
         UserTenant workspace = loadUserTenant(request.userTenantId());
         validateUserTenant(principal, workspace);
         String workspaceToken = jwtService.generateWorkspaceToken(workspace);
-        log.debug("Selecting workspace id: {}", principal.getTenantId());
 
         return new WorkspaceSelectionResponse(workspaceToken, workspace.getTenant().getId(), workspace.getTenant().getName(), workspace.getRole());
     }
@@ -71,7 +69,6 @@ public class AuthenticationService {
         validateUser(user);
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(user);
         String identityToken = jwtService.generateIdentityToken(principal);
-        log.debug("Refreshing workspace id: {}", principal.getTenantId());
         return new RefreshResponse(identityToken);
     }
 
@@ -119,8 +116,7 @@ public class AuthenticationService {
     }
 
     private void validateWorkspace(UserTenant userTenant) {
-        if (userTenant.getTenant().getStatus() == TenantStatus.INACTIVE)
-            throw new TenantAlreadyDeactivatedException("Tenant is disabled");
+        if (userTenant.getTenant().getStatus() == TenantStatus.INACTIVE) throw new TenantAlreadyDeactivatedException("Tenant is disabled");
         log.debug("Validating tenant ID: {}", userTenant.getTenant().getId());
     }
 
