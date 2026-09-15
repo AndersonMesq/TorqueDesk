@@ -89,19 +89,19 @@ O projeto também serve como ambiente prático para aplicação de conceitos de 
 
 ### Testes
 
-| Módulo | Teste | Status |
-|---|---|---|
-| `admin.service` | `AdminTenantServiceTest` | ✅ Implementado |
-| `admin.service` | `AdminUserServiceTest` | ✅ Implementado |
-| `admin.service` | `TenantProvisioningServiceTest` | ✅ Implementado |
-| `authentication.service` | `AuthenticationServiceTest` | 🚧 Em desenvolvimento |
-| `customer.service` | `CustomerServiceTest` | ✅ Implementado |
+| Módulo                   | Teste                           | Status             |
+|--------------------------|---------------------------------|--------------------|
+| `admin.service`          | `AdminTenantServiceTest`        | ✅ Implementado    |
+| `admin.service`          | `AdminUserServiceTest`          | ✅ Implementado    |
+| `admin.service`          | `TenantProvisioningServiceTest` | ✅ Implementado    |
+| `authentication.service` | `AuthenticationServiceTest`     | ✅ Implementado    |
+| `customer.service`       | `CustomerServiceTest`           | ✅ Implementado    |
+| `service_order.service`  | `ServiceOrderServiceTest`       | ✅ Implementado    |
+| `user.service`           | `UserServiceTest`               | ✅ Implementado    |
+| `userTenant.service`     | `UserTenantServiceTest`         | ✅ Implementado    |
+| `vehicle.service`        | `VehicleServiceTest`            | ✅ Implementado    |
 
-**Legenda:**
-
-- ✅ Implementado
-- 🚧 Em desenvolvimento
-- 📋 Planejado
+> 🚧 **Em desenvolvimento:** Testes de integração
 
 ---
 

@@ -68,7 +68,6 @@ public class AdminUserServiceTest {
         ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
         verify(userRepository).save(userCaptor.capture());
         User savedUser = userCaptor.getValue();
-
         assertThat(savedUser.getFullName()).isEqualTo(request.fullName());
         assertThat(savedUser.getUserName()).isEqualTo(request.userName());
         assertThat(savedUser.getEmail()).isEqualTo(request.email());

@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@Transactional (readOnly = true)
+@Transactional(readOnly = true)
 public class VehicleService {
     private final CustomerRepository customerRepository;
     private final VehicleRepository repository;
@@ -30,7 +30,7 @@ public class VehicleService {
     }
 
     @Transactional
-    public VehicleResponse createVehicle(CreateVehicleRequest request) throws VehicleNotFoundException {
+    public VehicleResponse createVehicle(CreateVehicleRequest request) {
         if (repository.existsByPlateAndModel(request.plate(), request.model())) throw new VehicleAlreadyExistException("Vehicle already exists");
         Customer customer = customerRepository.findById(request.customerId()).orElseThrow(() -> new CustomerNotFoundException("Customer not found"));
         Vehicle vehicle = Vehicle.builder()
@@ -49,20 +49,20 @@ public class VehicleService {
         return mapper.toResponse(vehicle);
     }
 
-    public VehicleResponse findByPlate(String plate){
-        Vehicle vehicles = repository.findByPlate(plate).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
-        return mapper.toResponse(vehicles);
+    public VehicleResponse findByPlate(String plate) {
+        Vehicle vehicle = repository.findByPlate(plate).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+        return mapper.toResponse(vehicle);
     }
 
-    public VehicleResponse findByModel(String model){
-        Vehicle vehicles = repository.findByModel(model).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
-        return mapper.toResponse(vehicles);
+    public VehicleResponse findByModel(String model) {
+        Vehicle vehicle = repository.findByModel(model).orElseThrow(() -> new VehicleNotFoundException("Vehicle not found"));
+        return mapper.toResponse(vehicle);
     }
 
     @Transactional
-    public VehicleResponse updateVehicle(UUID id, UpdateVehicleRequest request){
-        Vehicle vehicles = findVehicle(id);
-        vehicles.setPlate(request.plate());
-        return mapper.toResponse(vehicles);
+    public VehicleResponse updateVehicle(UUID id, UpdateVehicleRequest request) {
+        Vehicle vehicle = findVehicle(id);
+        vehicle.setPlate(request.plate());
+        return mapper.toResponse(vehicle);
     }
 }

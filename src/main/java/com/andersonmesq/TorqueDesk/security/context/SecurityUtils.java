@@ -16,9 +16,9 @@ public class SecurityUtils {
 
     public TorqueDeskPrincipal getPrincipal(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication == null){
-            throw new UnauthorizedException("User not authenticated.");
-        }
+        if (authentication == null || !authentication.isAuthenticated())
+            throw new UnauthorizedException("User not authenticated");
+
         return (TorqueDeskPrincipal) authentication.getPrincipal();
     }
 
