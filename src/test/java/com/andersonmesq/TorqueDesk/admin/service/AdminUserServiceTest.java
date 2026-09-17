@@ -26,8 +26,7 @@ import java.util.UUID;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class AdminUserServiceTest {
@@ -88,6 +87,9 @@ public class AdminUserServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> adminUserService.create(request);
 
         assertThatThrownBy(action).isInstanceOf(UserEmailAlreadyExistException.class).hasMessage("Email already exist");
+        verify(userRepository, never()).save(any(User.class));
+        verify(adminUserMapper, never()).toResponse(any(User.class));
+
     }
 
     @Test
@@ -103,6 +105,8 @@ public class AdminUserServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> adminUserService.create(request);
 
         assertThatThrownBy(action).isInstanceOf(UserNameAlreadyExistException.class).hasMessage("User already exist");
+        verify(userRepository, never()).save(any(User.class));
+        verify(adminUserMapper, never()).toResponse(any(User.class));
     }
 
     @Test
@@ -123,10 +127,10 @@ public class AdminUserServiceTest {
         );
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         when(adminUserMapper.toResponse(any(User.class))).thenReturn(expectedResponse);
+
         UserResponse userResponse = adminUserService.findById(userId);
 
         assertThat(userResponse).isEqualTo(expectedResponse);
-        verify(userRepository).findById(userId);
         verify(adminUserMapper).toResponse(any(User.class));
     }
 
@@ -138,6 +142,7 @@ public class AdminUserServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> adminUserService.findById(userId);
 
         assertThatThrownBy(action).isInstanceOf(UserNotFoundException.class).hasMessage("User not found");
+        verify(adminUserMapper, never()).toResponse(any(User.class));
     }
 
     @Test
@@ -157,6 +162,7 @@ public class AdminUserServiceTest {
         );
         when(userRepository.findByEmail(email)).thenReturn(Optional.of(user));
         when(adminUserMapper.toResponse(any(User.class))).thenReturn(expectedResponse);
+
         UserResponse userResponse = adminUserService.findByEmail(email);
 
         assertThat(userResponse).isEqualTo(expectedResponse);
@@ -207,15 +213,15 @@ public class AdminUserServiceTest {
     @Test
     void shouldThrowUserNotFoundExceptionWhenUpdatingNonExistingUser() {
         UUID userId = UUID.randomUUID();
-
         UpdateUserRequest request = new UpdateUserRequest(
                 "John Test Updated"
         );
+        when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
-        when(userRepository.findById(userId))
-                .thenReturn(Optional.empty());
+        ThrowableAssert.ThrowingCallable action = () -> adminUserService.update(userId, request);
 
-        assertThatThrownBy(() -> adminUserService.update(userId, request)).isInstanceOf(UserNotFoundException.class).hasMessage("User not found");
+        assertThatThrownBy(action).isInstanceOf(UserNotFoundException.class).hasMessage("User not found");
+        verify(adminUserMapper, never()).toResponse(any(User.class));
     }
 
     @Test

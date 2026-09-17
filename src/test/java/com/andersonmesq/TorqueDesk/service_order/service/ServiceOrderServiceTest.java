@@ -117,6 +117,7 @@ public class ServiceOrderServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> serviceOrderService.create(request);
 
         assertThatThrownBy(action).isInstanceOf(UnauthorizedException.class).hasMessage("User not authenticated");
+        verify(serviceOrderRepository, never()).save(any(ServiceOrder.class));
     }
 
     @Test
@@ -132,6 +133,7 @@ public class ServiceOrderServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> serviceOrderService.create(request);
 
         assertThatThrownBy(action).isInstanceOf(VehicleNotFoundException.class).hasMessage("Vehicle not found");
+        verify(serviceOrderRepository, never()).save(any(ServiceOrder.class));
     }
 
     @Test
@@ -140,9 +142,6 @@ public class ServiceOrderServiceTest {
                 "Service Description Test",
                 UUID.randomUUID()
         );
-        User user = User.builder()
-                .id(UUID.randomUUID())
-                .build();
         Customer customer = Customer.builder()
                 .id(UUID.randomUUID())
                 .build();
@@ -162,6 +161,8 @@ public class ServiceOrderServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> serviceOrderService.create(request);
 
         assertThatThrownBy(action).isInstanceOf(UserNotFoundException.class).hasMessage("User not found");
+        verify(serviceOrderRepository, never()).save(any(ServiceOrder.class));
+        verify(serviceOrderMapper, never()).toResponse(any(ServiceOrder.class));
     }
 
     @Test
@@ -218,13 +219,12 @@ public class ServiceOrderServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> serviceOrderService.startAssignment(serviceOrderId);
 
         assertThatThrownBy(action).isInstanceOf(ServiceOrderNotFoundException.class).hasMessage("Service order not found");
+        verify(assignmentRepository, never()).save(any(ServiceOrderAssignment.class));
+        verify(serviceOrderMapper, never()).toResponse(any(ServiceOrder.class));
     }
 
     @Test
     void shouldThrowServiceOrderAssignmentAlreadyStartedExceptionWhenAssignmentAlreadyStarted() {
-        User user = User.builder()
-                .id(UUID.randomUUID())
-                .build();
         ServiceOrder serviceOrder = ServiceOrder.builder()
                 .id(UUID.randomUUID())
                 .build();
@@ -236,6 +236,8 @@ public class ServiceOrderServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> serviceOrderService.startAssignment(serviceOrder.getId());
 
         assertThatThrownBy(action).isInstanceOf(ServiceOrderAssignmentAlreadyStartedException.class).hasMessage("Assignment already started");
+        verify(serviceOrderRepository, never()).save(any(ServiceOrder.class));
+        verify(serviceOrderMapper, never()).toResponse(any(ServiceOrder.class));
     }
 
     @Test
