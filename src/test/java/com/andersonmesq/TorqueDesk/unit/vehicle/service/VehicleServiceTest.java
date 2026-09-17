@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.vehicle.service;
+package com.andersonmesq.TorqueDesk.unit.vehicle.service;
 
 import com.andersonmesq.TorqueDesk.customer.exception.CustomerNotFoundException;
 import com.andersonmesq.TorqueDesk.customer.model.Customer;
@@ -11,6 +11,7 @@ import com.andersonmesq.TorqueDesk.vehicle.exception.VehicleNotFoundException;
 import com.andersonmesq.TorqueDesk.vehicle.mapper.VehicleMapper;
 import com.andersonmesq.TorqueDesk.vehicle.model.Vehicle;
 import com.andersonmesq.TorqueDesk.vehicle.repository.VehicleRepository;
+import com.andersonmesq.TorqueDesk.vehicle.service.VehicleService;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

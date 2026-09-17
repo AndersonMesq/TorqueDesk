@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.user.service;
+package com.andersonmesq.TorqueDesk.unit.user.service;
 
 import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
@@ -10,6 +10,7 @@ import com.andersonmesq.TorqueDesk.user.exception.UserNotFoundException;
 import com.andersonmesq.TorqueDesk.user.mapper.UserMapper;
 import com.andersonmesq.TorqueDesk.user.model.User;
 import com.andersonmesq.TorqueDesk.user.repository.UserRepository;
+import com.andersonmesq.TorqueDesk.user.service.UserService;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

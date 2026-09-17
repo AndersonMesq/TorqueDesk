@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.authentication.service;
+package com.andersonmesq.TorqueDesk.unit.authentication.service;
 
 import com.andersonmesq.TorqueDesk.authentication.dto.request.LoginRequest;
 import com.andersonmesq.TorqueDesk.authentication.dto.request.RefreshRequest;
@@ -8,12 +8,12 @@ import com.andersonmesq.TorqueDesk.authentication.dto.response.LoginResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.RefreshResponse;
 import com.andersonmesq.TorqueDesk.authentication.dto.response.WorkspaceSelectionResponse;
 import com.andersonmesq.TorqueDesk.authentication.mapper.AvailableWorkspaceMapper;
+import com.andersonmesq.TorqueDesk.authentication.service.AuthenticationService;
 import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
 import com.andersonmesq.TorqueDesk.security.exception.UnauthorizedException;
 import com.andersonmesq.TorqueDesk.security.jwt.JwtService;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
-import com.andersonmesq.TorqueDesk.security.principal.WorkspacePrincipal;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
 import com.andersonmesq.TorqueDesk.tenant.exception.AccessDeniedException;
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantAlreadyDeactivatedException;

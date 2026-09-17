@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.service_order.service;
+package com.andersonmesq.TorqueDesk.unit.service_order.service;
 
 import com.andersonmesq.TorqueDesk.customer.model.Customer;
 import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
@@ -13,6 +13,7 @@ import com.andersonmesq.TorqueDesk.service_order.model.ServiceOrder;
 import com.andersonmesq.TorqueDesk.service_order.model.ServiceOrderAssignment;
 import com.andersonmesq.TorqueDesk.service_order.repository.ServiceOrderAssignmentRepository;
 import com.andersonmesq.TorqueDesk.service_order.repository.ServiceOrderRepository;
+import com.andersonmesq.TorqueDesk.service_order.service.ServiceOrderService;
 import com.andersonmesq.TorqueDesk.service_order.service_order_status.ServiceOrderStatus;
 import com.andersonmesq.TorqueDesk.user.exception.UserNotFoundException;
 import com.andersonmesq.TorqueDesk.user.model.User;

@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.usertenant.service;
+package com.andersonmesq.TorqueDesk.unit.usertenant.service;
 
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantNotFoundException;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
@@ -13,6 +13,7 @@ import com.andersonmesq.TorqueDesk.usertenant.mapper.UserTenantMapper;
 import com.andersonmesq.TorqueDesk.usertenant.model.UserTenant;
 import com.andersonmesq.TorqueDesk.usertenant.repository.UserTenantRepository;
 import com.andersonmesq.TorqueDesk.usertenant.role.Role;
+import com.andersonmesq.TorqueDesk.usertenant.service.UserTenantService;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

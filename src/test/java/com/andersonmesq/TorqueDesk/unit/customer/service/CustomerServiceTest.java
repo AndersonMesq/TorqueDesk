@@ -1,4 +1,4 @@
-package com.andersonmesq.TorqueDesk.customer.service;
+package com.andersonmesq.TorqueDesk.unit.customer.service;
 
 import com.andersonmesq.TorqueDesk.customer.dto.CreateCustomerRequest;
 import com.andersonmesq.TorqueDesk.customer.dto.CustomerResponse;
@@ -7,6 +7,7 @@ import com.andersonmesq.TorqueDesk.customer.exception.CustomerNotFoundException;
 import com.andersonmesq.TorqueDesk.customer.mapper.CustomerMapper;
 import com.andersonmesq.TorqueDesk.customer.model.Customer;
 import com.andersonmesq.TorqueDesk.customer.repository.CustomerRepository;
+import com.andersonmesq.TorqueDesk.customer.service.CustomerService;
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantNotFoundException;
 import com.andersonmesq.TorqueDesk.tenant.model.Tenant;
 import com.andersonmesq.TorqueDesk.tenant.repository.TenantRepository;
@@ -99,9 +100,6 @@ public class CustomerServiceTest {
                 "85912345678",
                 tenantId
         );
-        Tenant tenant = Tenant.builder()
-                .id(tenantId)
-                .build();
         when(customerRepository.existsByEmail(request.email())).thenReturn(false);
         when(tenantRepository.findById(request.tenantId())).thenReturn(Optional.empty());
 

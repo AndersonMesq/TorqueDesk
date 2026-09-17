@@ -1,9 +1,10 @@
-package com.andersonmesq.TorqueDesk.admin.service;
+package com.andersonmesq.TorqueDesk.unit.admin.service;
 
 import com.andersonmesq.TorqueDesk.admin.dto.CreateUserRequest;
 import com.andersonmesq.TorqueDesk.admin.exception.UserEmailAlreadyExistException;
 import com.andersonmesq.TorqueDesk.admin.exception.UserNameAlreadyExistException;
 import com.andersonmesq.TorqueDesk.admin.mapper.AdminUserMapper;
+import com.andersonmesq.TorqueDesk.admin.service.AdminUserService;
 import com.andersonmesq.TorqueDesk.user.dto.UpdateUserRequest;
 import com.andersonmesq.TorqueDesk.user.dto.UserResponse;
 import com.andersonmesq.TorqueDesk.user.exception.UserAlreadyActiveException;

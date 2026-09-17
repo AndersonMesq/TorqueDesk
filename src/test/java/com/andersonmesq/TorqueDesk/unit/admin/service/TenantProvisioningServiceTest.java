@@ -1,7 +1,7 @@
-package com.andersonmesq.TorqueDesk.admin.service;
+package com.andersonmesq.TorqueDesk.unit.admin.service;
 
-import com.andersonmesq.TorqueDesk.admin.dto.TenantProvisionResponse;
 import com.andersonmesq.TorqueDesk.admin.exception.DuplicateSlugException;
+import com.andersonmesq.TorqueDesk.admin.service.TenantProvisioningService;
 import com.andersonmesq.TorqueDesk.shared.util.SlugGenerator;
 import com.andersonmesq.TorqueDesk.tenant.dto.CreateTenantRequest;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
