@@ -26,8 +26,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class TenantProvisioningServiceTest {
@@ -55,12 +54,10 @@ public class TenantProvisioningServiceTest {
                 "12345678"
         );
         String slug = SlugGenerator.generate(request.companyName());
-
         when(tenantRepository.existsBySlug(slug)).thenReturn(false);
         when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
 
-        TenantProvisionResponse tenantProvisionResponse = tenantProvisioningService.createTenant(request);
-        assertThat(tenantProvisionResponse).isNotNull();
+        tenantProvisioningService.createTenant(request);
 
         ArgumentCaptor<Tenant> tenantCaptor = ArgumentCaptor.forClass(Tenant.class);
         verify(tenantRepository).save(tenantCaptor.capture());
@@ -96,11 +93,14 @@ public class TenantProvisioningServiceTest {
                 "12345678"
         );
         String slug = SlugGenerator.generate(request.companyName());
-
         when(tenantRepository.existsBySlug(slug)).thenReturn(true);
+
         ThrowableAssert.ThrowingCallable action = () -> tenantProvisioningService.createTenant(request);
 
-        assertThatThrownBy(action).isInstanceOf(DuplicateSlugException.class).hasMessage("Slug already exists");
+        assertThatThrownBy(action).isInstanceOf(DuplicateSlugException.class).hasMessage("Tenant already exists");
+        verify(tenantRepository, never()).save(any(Tenant.class));
+        verify(userRepository, never()).save(any(User.class));
+        verify(userTenantRepository, never()).save(any(UserTenant.class));
     }
 
     @Test
@@ -113,8 +113,12 @@ public class TenantProvisioningServiceTest {
         );
 
         when(userRepository.existsByEmail(request.ownerEmail().toLowerCase())).thenReturn(true);
+
         ThrowableAssert.ThrowingCallable action = () -> tenantProvisioningService.createTenant(request);
 
         assertThatThrownBy(action).isInstanceOf(OwnerAlreadyExistException.class).hasMessage("Owner with this email already exists");
+        verify(tenantRepository, never()).save(any(Tenant.class));
+        verify(userRepository, never()).save(any(User.class));
+        verify(userTenantRepository, never()).save(any(UserTenant.class));
     }
 }

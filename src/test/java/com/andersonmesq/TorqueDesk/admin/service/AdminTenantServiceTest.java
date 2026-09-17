@@ -23,8 +23,8 @@ import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class AdminTenantServiceTest {
@@ -47,7 +47,7 @@ public class AdminTenantServiceTest {
                 .build();
         String slug = SlugGenerator.generate(tenant.getName());
         TenantResponse expectedResponse = new TenantResponse(
-                null,
+                tenantId,
                 "Tenant Test",
                 slug,
                 TenantStatus.ACTIVE
@@ -70,6 +70,7 @@ public class AdminTenantServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> adminTenantService.findById(tenantId);
 
         assertThatThrownBy(action).isInstanceOf(TenantNotFoundException.class).hasMessage("Tenant not found");
+        verify(tenantMapper, never()).toResponse(any(Tenant.class));
     }
 
     @Test
@@ -122,6 +123,7 @@ public class AdminTenantServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> adminTenantService.update(tenantId, request);
 
         assertThatThrownBy(action).isInstanceOf(DuplicateSlugException.class).hasMessage("Slug already exists");
+        verify(tenantMapper, never()).toResponse(any(Tenant.class));
     }
 
     @Test
@@ -134,6 +136,7 @@ public class AdminTenantServiceTest {
                 .status(TenantStatus.ACTIVE)
                 .build();
         when(tenantRepository.findById(tenantId)).thenReturn(Optional.of(tenant));
+
         adminTenantService.deactivate(tenantId);
 
         assertThat(tenant.getStatus()).isEqualTo(TenantStatus.INACTIVE);
@@ -149,6 +152,7 @@ public class AdminTenantServiceTest {
                 .status(TenantStatus.INACTIVE)
                 .build();
         when(tenantRepository.findById(tenantId)).thenReturn(Optional.of(tenant));
+
         ThrowableAssert.ThrowingCallable action = () -> adminTenantService.deactivate(tenantId);
 
         assertThatThrownBy(action).isInstanceOf(TenantAlreadyDeactivatedException.class).hasMessage("Tenant already deactivate");
@@ -164,6 +168,7 @@ public class AdminTenantServiceTest {
                 .status(TenantStatus.INACTIVE)
                 .build();
         when(tenantRepository.findById(tenantId)).thenReturn(Optional.of(tenant));
+
         adminTenantService.activate(tenantId);
 
         assertThat(tenant.getStatus()).isEqualTo(TenantStatus.ACTIVE);

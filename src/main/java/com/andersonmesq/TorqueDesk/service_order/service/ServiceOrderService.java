@@ -4,7 +4,6 @@ import com.andersonmesq.TorqueDesk.security.context.SecurityUtils;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.service_order.dto.CreateServiceOrderRequest;
 import com.andersonmesq.TorqueDesk.service_order.dto.ServiceOrderResponse;
-import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderAssignmentAlreadyFinishedException;
 import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderAssignmentAlreadyStartedException;
 import com.andersonmesq.TorqueDesk.service_order.exception.ServiceOrderNotFoundException;
 import com.andersonmesq.TorqueDesk.service_order.mapper.ServiceOrderMapper;

@@ -13,6 +13,7 @@ import com.andersonmesq.TorqueDesk.security.exception.UnauthorizedException;
 import com.andersonmesq.TorqueDesk.security.jwt.JwtService;
 import com.andersonmesq.TorqueDesk.security.principal.TorqueDeskPrincipal;
 import com.andersonmesq.TorqueDesk.security.principal.UserPrincipal;
+import com.andersonmesq.TorqueDesk.security.principal.WorkspacePrincipal;
 import com.andersonmesq.TorqueDesk.tenant.enums.TenantStatus;
 import com.andersonmesq.TorqueDesk.tenant.exception.AccessDeniedException;
 import com.andersonmesq.TorqueDesk.tenant.exception.TenantAlreadyDeactivatedException;
@@ -85,7 +86,6 @@ public class AuthenticationServiceTest {
         Authentication authentication = mock(Authentication.class);
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(authentication);
         when(authentication.getPrincipal()).thenReturn(userPrincipal);
-
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(userPrincipal);
         String identityToken = "identity-token";
         when(jwtService.generateIdentityToken(any(TorqueDeskPrincipal.class))).thenReturn(identityToken);
@@ -121,7 +121,6 @@ public class AuthenticationServiceTest {
         Authentication authentication = mock(Authentication.class);
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(authentication);
         when(authentication.getPrincipal()).thenReturn(userPrincipal);
-
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(userPrincipal);
         String identityToken = "identity-token";
         when(jwtService.generateIdentityToken(any(TorqueDeskPrincipal.class))).thenReturn(identityToken);
@@ -221,7 +220,7 @@ public class AuthenticationServiceTest {
     }
 
     @Test
-    void shouldThrowUserTenantNotFoundExceptionWhenUserTryLoginHasNoWorkspace()  {
+    void shouldThrowUserTenantNotFoundExceptionWhenUserTryLoginHasNoWorkspace() {
         UUID userPrincipalId = UUID.randomUUID();
         LoginRequest request = new LoginRequest(
                 "userTest",
@@ -236,7 +235,6 @@ public class AuthenticationServiceTest {
         Authentication authentication = mock(Authentication.class);
         when(authenticationManager.authenticate(any(UsernamePasswordAuthenticationToken.class))).thenReturn(authentication);
         when(authentication.getPrincipal()).thenReturn(userPrincipal);
-
         TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(userPrincipal);
         String identityToken = "identity-token";
         when(jwtService.generateIdentityToken(any(TorqueDeskPrincipal.class))).thenReturn(identityToken);
@@ -249,8 +247,8 @@ public class AuthenticationServiceTest {
     }
 
     @Test
-    void shouldReturnWorkspaceSelectionResponseWhenWorkspaceIsValid(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldReturnWorkspaceSelectionResponseWhenWorkspaceIsValid() {
+        UUID userTenantId = UUID.randomUUID();
         UUID userPrincipalId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
                 userTenantId
@@ -294,8 +292,8 @@ public class AuthenticationServiceTest {
     }
 
     @Test
-    void shouldThrowUnauthorizedExceptionWhenAuthenticationIsNull(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldThrowUnauthorizedExceptionWhenAuthenticationIsNull() {
+        UUID userTenantId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
                 userTenantId
         );
@@ -304,11 +302,12 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.selectWorkspace(request);
 
         assertThatThrownBy(action).isInstanceOf(UnauthorizedException.class).hasMessage("User not authenticated");
+        verify(jwtService, never()).generateWorkspaceToken(any(UserTenant.class));
     }
 
     @Test
-    void shouldThrowUserTenantNotFoundExceptionWhenUserTenantIdNoExist(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldThrowUserTenantNotFoundExceptionWhenUserTenantIdNoExist() {
+        UUID userTenantId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
                 userTenantId
         );
@@ -317,11 +316,12 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.selectWorkspace(request);
 
         assertThatThrownBy(action).isInstanceOf(UserTenantNotFoundException.class).hasMessage("Workspace not found");
+        verify(jwtService, never()).generateWorkspaceToken(any(UserTenant.class));
     }
 
     @Test
-    void shouldThrowUserTenantDisabledExceptionWhenUserTenantIsDisabled(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldThrowUserTenantDisabledExceptionWhenUserTenantIsDisabled() {
+        UUID userTenantId = UUID.randomUUID();
         UUID userPrincipalId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
                 userTenantId
@@ -354,11 +354,12 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.selectWorkspace(request);
 
         assertThatThrownBy(action).isInstanceOf(UserTenantDisabledException.class).hasMessage("Workspace is disabled.");
+        verify(jwtService, never()).generateWorkspaceToken(any(UserTenant.class));
     }
 
     @Test
-    void shouldThrowTenantAlreadyDeactivatedExceptionWhenTenantIsInactive(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldThrowTenantAlreadyDeactivatedExceptionWhenTenantIsInactive() {
+        UUID userTenantId = UUID.randomUUID();
         UUID userPrincipalId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
                 userTenantId
@@ -391,11 +392,12 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.selectWorkspace(request);
 
         assertThatThrownBy(action).isInstanceOf(TenantAlreadyDeactivatedException.class).hasMessage("Tenant is disabled");
+        verify(jwtService, never()).generateWorkspaceToken(any(UserTenant.class));
     }
 
     @Test
-    void shouldThrowAccessDeniedExceptionWhenUserIdsIsIncompatible(){
-        UUID userTenantId =  UUID.randomUUID();
+    void shouldThrowAccessDeniedExceptionWhenUserIdsIsIncompatible() {
+        UUID userTenantId = UUID.randomUUID();
         UUID userPrincipalId = UUID.randomUUID();
         UUID userId = UUID.randomUUID();
         WorkspaceSelectionRequest request = new WorkspaceSelectionRequest(
@@ -429,6 +431,7 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.selectWorkspace(request);
 
         assertThatThrownBy(action).isInstanceOf(AccessDeniedException.class).hasMessage("Workspace does not belong to authenticated user.");
+        verify(jwtService, never()).generateWorkspaceToken(any(UserTenant.class));
     }
 
     @Test
@@ -447,7 +450,6 @@ public class AuthenticationServiceTest {
         when(jwtService.validateRefreshToken(request.refreshToken())).thenReturn(true);
         when(jwtService.extractUserId(request.refreshToken())).thenReturn(userId);
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-        TorqueDeskPrincipal principal = TorqueDeskPrincipal.fromUser(user);
         String identityToken = "identity-token";
         when(jwtService.generateIdentityToken(any(TorqueDeskPrincipal.class))).thenReturn(identityToken);
 
@@ -470,6 +472,7 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.refresh(request);
 
         assertThatThrownBy(action).isInstanceOf(AccessDeniedException.class).hasMessage("Invalid refresh token");
+        verify(jwtService, never()).extractUserId(any(String.class));
     }
 
     @Test
@@ -485,10 +488,11 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.refresh(request);
 
         assertThatThrownBy(action).isInstanceOf(UserNotFoundException.class).hasMessage("User not found");
+        verify(jwtService, never()).generateIdentityToken(any(TorqueDeskPrincipal.class));
     }
 
     @Test
-    void shouldThrowUnauthorizedExceptionWhenUserIsDisabled(){
+    void shouldThrowUnauthorizedExceptionWhenUserIsDisabled() {
         UUID userId = UUID.randomUUID();
         RefreshRequest request = new RefreshRequest(
                 "refresh-token"
@@ -507,5 +511,6 @@ public class AuthenticationServiceTest {
         ThrowableAssert.ThrowingCallable action = () -> authenticationService.refresh(request);
 
         assertThatThrownBy(action).isInstanceOf(UnauthorizedException.class).hasMessage("User is disabled.");
+        verify(jwtService, never()).generateIdentityToken(any(TorqueDeskPrincipal.class));
     }
 }
