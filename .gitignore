@@ -7,6 +7,7 @@ target/
 zanotações/anotações.txt
 src/main/resources/application-dev.properties
 zanotações
+comandosDocker.txt
 
 ###log###
 src/main/resources/logs
