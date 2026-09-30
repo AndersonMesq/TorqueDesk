@@ -92,8 +92,7 @@ public class CustomerServiceIT {
         );
 
         assertThatThrownBy(() -> customerService.create(duplicatedRequest))
-                .isInstanceOf(CustomerAlreadyExistException.class)
-                .hasMessage("Customer already exist");
+                .isInstanceOf(CustomerAlreadyExistException.class).hasMessage("Customer already exist");
         assertThat(customerRepository.findAll()).hasSize(1);
         assertThat(customerRepository.findByEmail(firstRequest.email()))
                 .isPresent()
@@ -165,7 +164,7 @@ public class CustomerServiceIT {
     private Tenant createAndSaveTenant(){
         Tenant tenant = Tenant.builder()
                 .name("Test Tenant")
-                .slug("test-tenant")
+                .slug("test-tenant-" + UUID.randomUUID())
                 .status(TenantStatus.ACTIVE)
                 .build();
         return tenantRepository.saveAndFlush(tenant);
@@ -174,8 +173,8 @@ public class CustomerServiceIT {
     private Customer createAndSaveCustomer(Tenant tenant){
         Customer customer = Customer.builder()
                 .name("John test")
-                .email("john.test@gmail.com")
-                .phone("85999990001")
+                .email("john.test-" + UUID.randomUUID() + "@email.com")
+                .phone("859999" + String.format("%05d", (int) (Math.random() * 100000)))
                 .tenant(tenant)
                 .build();
         return customerRepository.saveAndFlush(customer);

@@ -191,7 +191,7 @@ public class CustomerRepositoryIT {
     private Tenant createTenant(){
         Tenant tenant = Tenant.builder()
                 .name("TorqueDesk")
-                .slug("torquedesk")
+                .slug("test-tenant-" + UUID.randomUUID())
                 .status(TenantStatus.ACTIVE)
                 .build();
         return  tenantRepository.save(tenant);
