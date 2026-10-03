@@ -68,8 +68,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(
-                post("/api/v1/customers")
+        var result = mockMvc.perform(post("/api/v1/customers")
                         .with(user("test-user"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson)
@@ -79,10 +78,7 @@ public class CustomerControllerIT {
                 .andExpect(jsonPath("$.id").isNotEmpty())
                 .andExpect(jsonPath("$.name").value(request.name()))
                 .andExpect(jsonPath("$.email").value(request.email()));
-        assertThat(customerRepository.findAll())
-                .hasSize(1)
-                .first()
-                .satisfies(customer -> {
+        assertThat(customerRepository.findAll()).hasSize(1).first().satisfies(customer -> {
                     assertThat(customer.getName()).isEqualTo(request.name());
                     assertThat(customer.getEmail()).isEqualTo(request.email());
                     assertThat(customer.getPhone()).isEqualTo(request.phone());
@@ -101,8 +97,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(
-                post("/api/v1/customers")
+        var result = mockMvc.perform(post("/api/v1/customers")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson)
         );

@@ -16,6 +16,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -75,7 +76,7 @@ public class CustomerRepositoryIT {
     void shouldReturnEmptyWhenCustomerDoesNotExist(){
         UUID nonExistentId = UUID.randomUUID();
 
-        var result = customerRepository.findById(nonExistentId);
+        Optional<Customer> result = customerRepository.findById(nonExistentId);
 
         assertThat(result).isEmpty();
     }
@@ -88,7 +89,7 @@ public class CustomerRepositoryIT {
         entityManager.flush();
         entityManager.clear();
 
-        var result = customerRepository.findByEmail(customer.getEmail());
+        Optional<Customer> result = customerRepository.findByEmail(customer.getEmail());
 
         assertThat(result).isPresent().get().extracting(Customer::getEmail).isEqualTo(customer.getEmail());
     }
@@ -97,7 +98,7 @@ public class CustomerRepositoryIT {
     void shouldReturnEmptyWhenCustomerEmailDoesNotExist(){
         String nonExistentEmail = "nonexistent@email.com";
 
-        var result = customerRepository.findByEmail(nonExistentEmail);
+        Optional<Customer> result = customerRepository.findByEmail(nonExistentEmail);
 
         assertThat(result).isEmpty();
     }
