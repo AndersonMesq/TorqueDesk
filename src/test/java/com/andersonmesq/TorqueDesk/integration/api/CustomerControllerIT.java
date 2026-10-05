@@ -16,6 +16,7 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -68,7 +69,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(post("/api/v1/customers")
+        ResultActions result = mockMvc.perform(post("/api/v1/customers")
                         .with(user("test-user"))
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson)
@@ -97,7 +98,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(post("/api/v1/customers")
+        ResultActions result = mockMvc.perform(post("/api/v1/customers")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(requestJson)
         );
@@ -117,7 +118,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 post("/api/v1/customers")
                         .with(user("test-user"))
                         .contentType(MediaType.APPLICATION_JSON)
@@ -133,7 +134,7 @@ public class CustomerControllerIT {
         Tenant tenant = createAndSaveTenant();
         Customer customer = createAndSaveCustomer(tenant);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 get("/api/v1/customers/{id}", customer.getId()).with(user("test-user"))
         );
 
@@ -148,7 +149,7 @@ public class CustomerControllerIT {
         Tenant tenant = createAndSaveTenant();
         Customer customer = createAndSaveCustomer(tenant);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 get("/api/v1/customers/{id}", customer.getId())
                         .with(user("test-user"))
         );
@@ -164,7 +165,7 @@ public class CustomerControllerIT {
         Tenant tenant = createAndSaveTenant();
         Customer customer = createAndSaveCustomer(tenant);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 get("/api/v1/customers/{id}", customer.getId())
         );
 
@@ -176,7 +177,7 @@ public class CustomerControllerIT {
         Tenant tenant = createAndSaveTenant();
         Customer customer = createAndSaveCustomer(tenant);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 get("/api/v1/customers/{id}", customer.getEmail())
         );
 
@@ -195,7 +196,7 @@ public class CustomerControllerIT {
         );
         String requestJson = objectMapper.writeValueAsString(request);
 
-        var result = mockMvc.perform(
+        ResultActions result = mockMvc.perform(
                 post("/api/v1/customers")
                         .with(user("test-user"))
                         .contentType(MediaType.APPLICATION_JSON)
