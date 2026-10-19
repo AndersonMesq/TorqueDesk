@@ -136,6 +136,7 @@ public class AdminTenantServiceIT {
     @Test
     void shouldRejectDeactivateWhenTenantAlreadyDeactivated(){
         Tenant tenant = createAndSaveTenant();
+
         adminTenantService.deactivate(tenant.getId());
 
         assertThatThrownBy(() -> adminTenantService.deactivate(tenant.getId()))

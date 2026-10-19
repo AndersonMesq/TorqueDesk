@@ -51,12 +51,12 @@ public class AdminUserService {
 
     @Transactional
     public UserResponse create(@Valid CreateUserRequest request){
-        if(repository.existsByEmail(request.email().toLowerCase())) throw new UserEmailAlreadyExistException("Email already exist");
-        if (repository.existsByUserName(request.userName().toLowerCase())) throw new UserNameAlreadyExistException("User already exist");
+        if (repository.existsByEmail(request.email().toLowerCase())) throw new UserEmailAlreadyExistException("Email already exist");
+        if (repository.existsByUserName(request.userName())) throw new UserNameAlreadyExistException("User already exist");
         User user = User.builder()
                 .fullName(request.fullName())
                 .userName(request.userName())
-                .email(request.email())
+                .email(request.email().toLowerCase())
                 .password(passwordEncoder.encode(request.password()))
                 .systemRole(SystemRole.USER)
                 .enabled(true)

@@ -57,7 +57,7 @@ public class AdminTenantControllerIT {
     private MockMvc mockMvc;
 
     @BeforeEach
-    void tearDown() {
+    void cleanDatabase() {
         userTenantRepository.deleteAll();
         tenantRepository.deleteAll();
         userRepository.deleteAll();
@@ -108,7 +108,7 @@ public class AdminTenantControllerIT {
         String requestJson = objectMapper.writeValueAsString(request);
 
         ResultActions result = mockMvc.perform(post("/api/v1/admin/tenants")
-                .with(user("test-user"))
+                .with(user("test-user").roles("USER"))
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestJson)
         );
