@@ -101,7 +101,7 @@ O projeto também serve como ambiente prático para aplicação de conceitos de 
 | `userTenant.service`     | `UserTenantServiceTest`         | ✅ Implementado    |
 | `vehicle.service`        | `VehicleServiceTest`            | ✅ Implementado    |
 
-> 🚧 **Em desenvolvimento:** Testes de integração
+> 🚧 **Em desenvolvimento:** Testes de integração (Testcontainers + integrations)
 
 ---
 

@@ -3,6 +3,7 @@ package com.andersonmesq.TorqueDesk.customer.controller;
 import com.andersonmesq.TorqueDesk.customer.dto.CreateCustomerRequest;
 import com.andersonmesq.TorqueDesk.customer.dto.CustomerResponse;
 import com.andersonmesq.TorqueDesk.customer.service.CustomerService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -19,7 +20,7 @@ public class CustomerController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CustomerResponse create(CreateCustomerRequest request) {
+    public CustomerResponse create(@RequestBody @Valid CreateCustomerRequest request) {
         return service.create(request);
     }
 
